@@ -18,8 +18,8 @@
   <style>
     :root {
       --bg-dark: #080b12;
-      --bg-card: rgba(18, 24, 38, 0.75);
-      --bg-card-hover: rgba(28, 38, 60, 0.9);
+      --bg-card: rgba(18, 24, 38, 0.8);
+      --bg-card-hover: rgba(28, 38, 62, 0.95);
       --border-subtle: rgba(255, 255, 255, 0.08);
       --border-accent: rgba(56, 189, 248, 0.35);
       --text-main: #f1f5f9;
@@ -44,72 +44,72 @@
       color: var(--text-main);
       margin: 0;
       padding: 0;
-      overflow: hidden;
       height: 100%;
       width: 100%;
+      overflow: hidden;
     }
 
-    /* Ambient Background Glow */
+    /* Ambient Glow */
     .ambient-bg {
       position: fixed;
       inset: 0;
       pointer-events: none;
       z-index: 0;
       background:
-        radial-gradient(circle at 15% 20%, rgba(56, 189, 248, 0.07) 0%, transparent 45%),
-        radial-gradient(circle at 85% 75%, rgba(192, 132, 252, 0.07) 0%, transparent 45%),
-        radial-gradient(circle at 50% 50%, rgba(52, 211, 153, 0.04) 0%, transparent 60%);
+        radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(192, 132, 252, 0.07) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(52, 211, 153, 0.04) 0%, transparent 50%);
     }
 
-    .reveal-viewport {
-      background: transparent !important;
-    }
+    .reveal-viewport { background: transparent !important; }
 
     .reveal {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 26px;
+      font-size: 24px;
       color: var(--text-main);
       z-index: 1;
     }
 
-    /* Slides layout */
+    /* Slides Layout Fix: Nigdy nie ucinaj treści */
     .reveal .slides section {
       text-align: left;
       height: 100%;
+      max-height: 680px;
       box-sizing: border-box;
-      padding: 30px 40px !important;
+      padding: 20px 30px !important;
       display: flex !important;
       flex-direction: column;
       justify-content: center;
       align-items: stretch;
-      max-width: 1200px;
+      max-width: 1220px;
       margin: 0 auto;
     }
 
     .reveal .slides section.center-slide {
       text-align: center;
       align-items: center;
+      justify-content: center;
     }
 
     /* Typography */
-    h1, h2, h3, h4, .font-syne {
+    h1, h2, h3, h4 {
       font-family: 'Syne', sans-serif !important;
       font-weight: 700;
       letter-spacing: -0.02em;
       color: #ffffff;
       text-transform: none !important;
-      margin: 0 0 15px 0;
+      margin: 0 0 10px 0;
     }
 
-    h1 { font-size: 2.5em !important; line-height: 1.15; }
-    h2 { font-size: 1.75em !important; line-height: 1.25; margin-bottom: 20px; }
-    h3 { font-size: 1.25em !important; color: var(--cyan); margin-bottom: 12px; }
+    h1 { font-size: 2.3em !important; line-height: 1.15; }
+    h2 { font-size: 1.6em !important; line-height: 1.25; margin-bottom: 14px; }
+    h3 { font-size: 1.15em !important; color: var(--cyan); margin-bottom: 8px; }
 
     p, li {
-      font-size: 0.88em;
-      line-height: 1.55;
+      font-size: 0.84em;
+      line-height: 1.5;
       color: #cbd5e1;
-      margin: 6px 0;
+      margin: 4px 0;
     }
 
     code, pre, .mono {
@@ -117,19 +117,19 @@
     }
 
     .reveal pre {
-      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
       border: 1px solid var(--border-subtle);
-      border-radius: 10px;
-      margin: 12px 0;
+      border-radius: 8px;
+      margin: 8px 0;
       width: 100%;
     }
 
     .reveal pre code {
       font-size: 0.72em;
-      line-height: 1.45;
-      padding: 16px;
-      border-radius: 10px;
-      max-height: 480px;
+      line-height: 1.4;
+      padding: 12px 16px;
+      border-radius: 8px;
+      max-height: 380px;
     }
 
     /* Gradient texts */
@@ -138,13 +138,13 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .grad-purple {
-      background: linear-gradient(135deg, #c084fc 0%, #f43f5e 100%);
+    .grad-emerald {
+      background: linear-gradient(135deg, #34d399 0%, #38bdf8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .grad-emerald {
-      background: linear-gradient(135deg, #34d399 0%, #38bdf8 100%);
+    .grad-purple {
+      background: linear-gradient(135deg, #c084fc 0%, #f43f5e 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -154,7 +154,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 5px 12px;
+      padding: 4px 10px;
       border-radius: 20px;
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.55em;
@@ -164,7 +164,8 @@
       background: rgba(56, 189, 248, 0.12);
       color: var(--cyan);
       border: 1px solid rgba(56, 189, 248, 0.25);
-      margin-bottom: 12px;
+      margin-bottom: 8px;
+      width: fit-content;
     }
     .badge.emerald {
       background: rgba(52, 211, 153, 0.12);
@@ -176,95 +177,73 @@
       color: var(--rose);
       border-color: rgba(251, 113, 133, 0.3);
     }
-    .badge.purple {
-      background: rgba(192, 132, 252, 0.12);
-      color: var(--purple);
-      border-color: rgba(192, 132, 252, 0.3);
+    .badge.amber {
+      background: rgba(251, 191, 36, 0.12);
+      color: var(--amber);
+      border-color: rgba(251, 191, 36, 0.3);
     }
 
     /* Grids & Cards */
     .grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 16px;
       align-items: stretch;
-      margin: 15px 0;
+      margin: 10px 0;
     }
     .grid-3 {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 16px;
+      gap: 14px;
       align-items: stretch;
-      margin: 15px 0;
+      margin: 10px 0;
     }
     .grid-4 {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin: 15px 0;
+      gap: 12px;
+      margin: 10px 0;
     }
 
     .card {
       background: var(--bg-card);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(10px);
       border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 20px;
-      transition: all 0.25s ease;
+      border-radius: 10px;
+      padding: 14px 16px;
       position: relative;
-      overflow: hidden;
-    }
-    .card:hover {
-      border-color: var(--border-accent);
-      background: var(--bg-card-hover);
-      transform: translateY(-2px);
     }
     .card h3 {
-      font-size: 1.05em;
+      font-size: 0.98em;
       margin-top: 0;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .card p {
-      font-size: 0.8em;
-      margin: 4px 0;
+      font-size: 0.78em;
+      margin: 3px 0;
     }
 
-    .card-accent-top {
-      border-top: 3px solid var(--cyan);
-    }
-    .card-accent-purple {
-      border-top: 3px solid var(--purple);
-    }
-    .card-accent-emerald {
-      border-top: 3px solid var(--emerald);
-    }
-    .card-accent-ghost {
-      border-top: 3px solid var(--ghost-color);
-    }
-    .card-accent-wp {
-      border-top: 3px solid var(--wp-color);
-    }
-    .card-accent-joomla {
-      border-top: 3px solid var(--joomla-color);
-    }
-    .card-accent-astro {
-      border-top: 3px solid var(--astro-color);
-    }
+    .card-accent-cyan { border-top: 3px solid var(--cyan); }
+    .card-accent-emerald { border-top: 3px solid var(--emerald); }
+    .card-accent-purple { border-top: 3px solid var(--purple); }
+    .card-accent-wp { border-top: 3px solid var(--wp-color); }
+    .card-accent-joomla { border-top: 3px solid var(--joomla-color); }
+    .card-accent-ghost { border-top: 3px solid var(--ghost-color); }
 
     /* Tables */
     .modern-table {
       width: 100%;
       border-collapse: collapse;
       font-size: 0.72em;
-      margin: 15px 0;
+      margin: 10px 0;
       background: var(--bg-card);
-      border-radius: 10px;
+      border-radius: 8px;
       overflow: hidden;
       border: 1px solid var(--border-subtle);
     }
     .modern-table th {
       background: rgba(30, 41, 59, 0.9);
-      padding: 12px 14px;
+      padding: 8px 12px;
       text-align: left;
       font-weight: 600;
       color: var(--cyan);
@@ -272,55 +251,35 @@
       font-family: 'JetBrains Mono', monospace;
     }
     .modern-table td {
-      padding: 10px 14px;
+      padding: 7px 12px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       color: #e2e8f0;
     }
-    .modern-table tr:hover td {
-      background: rgba(255, 255, 255, 0.03);
+
+    /* Callout */
+    .callout {
+      border-left: 3px solid var(--cyan);
+      background: rgba(56, 189, 248, 0.08);
+      padding: 8px 14px;
+      border-radius: 0 6px 6px 0;
+      margin: 8px 0;
+      font-size: 0.8em;
+    }
+    .callout.emerald {
+      border-color: var(--emerald);
+      background: rgba(52, 211, 153, 0.08);
+    }
+    .callout.amber {
+      border-color: var(--amber);
+      background: rgba(251, 191, 36, 0.08);
     }
 
-    /* Architecture visual boxes */
-    .arch-flow {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      background: rgba(15, 23, 42, 0.6);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 16px 20px;
-      margin: 15px 0;
-    }
-    .arch-node {
-      background: var(--bg-card);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 8px;
-      padding: 10px 14px;
-      text-align: center;
-      flex: 1;
-    }
-    .arch-node .title {
-      font-weight: 700;
-      font-size: 0.85em;
-      color: #fff;
-    }
-    .arch-node .desc {
-      font-size: 0.68em;
-      color: var(--text-muted);
-      margin-top: 3px;
-    }
-    .arch-arrow {
-      color: var(--cyan);
-      font-size: 1.1em;
-    }
-
-    /* Floating Header & Footer Controls */
+    /* Floating Navigation */
     .header-bar {
       position: fixed;
-      top: 14px;
-      left: 24px;
-      right: 24px;
+      top: 10px;
+      left: 20px;
+      right: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -331,12 +290,11 @@
 
     .header-title {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
+      font-size: 0.7rem;
       color: var(--text-muted);
-      background: rgba(15, 23, 42, 0.75);
+      background: rgba(15, 23, 42, 0.8);
       backdrop-filter: blur(8px);
-      padding: 6px 14px;
+      padding: 5px 12px;
       border-radius: 20px;
       border: 1px solid var(--border-subtle);
     }
@@ -344,22 +302,22 @@
 
     .nav-controls {
       display: flex;
-      gap: 8px;
+      gap: 6px;
     }
     .ctrl-btn {
-      background: rgba(15, 23, 42, 0.8);
+      background: rgba(15, 23, 42, 0.85);
       border: 1px solid var(--border-subtle);
       color: var(--text-muted);
-      padding: 6px 12px;
-      border-radius: 8px;
-      font-size: 0.75rem;
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 0.72rem;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       font-family: 'JetBrains Mono', monospace;
-      transition: all 0.2s ease;
       text-decoration: none;
+      transition: all 0.2s ease;
     }
     .ctrl-btn:hover {
       color: #fff;
@@ -368,56 +326,27 @@
     }
 
     .time-tracker {
-      background: rgba(15, 23, 42, 0.8);
+      background: rgba(15, 23, 42, 0.85);
       border: 1px solid var(--border-subtle);
       color: var(--amber);
-      padding: 6px 12px;
-      border-radius: 8px;
-      font-size: 0.75rem;
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 0.72rem;
       font-family: 'JetBrains Mono', monospace;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
     }
 
-    /* Reveal custom progress */
-    .reveal .progress {
-      height: 4px !important;
-      background: rgba(255, 255, 255, 0.1) !important;
-    }
-    .reveal .progress span {
-      background: linear-gradient(90deg, var(--cyan), var(--purple)) !important;
-    }
-
-    /* Key indicator */
     .keycap {
       display: inline-block;
-      padding: 2px 7px;
+      padding: 2px 6px;
       font-size: 0.65em;
       font-family: 'JetBrains Mono', monospace;
       color: #e2e8f0;
       background: rgba(255, 255, 255, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 4px;
-      box-shadow: 0 2px 0 rgba(0,0,0,0.4);
-    }
-
-    /* Alert callouts */
-    .callout {
-      border-left: 4px solid var(--cyan);
-      background: rgba(56, 189, 248, 0.08);
-      padding: 12px 18px;
-      border-radius: 0 8px 8px 0;
-      margin: 12px 0;
-      font-size: 0.82em;
-    }
-    .callout.amber {
-      border-color: var(--amber);
-      background: rgba(251, 191, 36, 0.08);
-    }
-    .callout.emerald {
-      border-color: var(--emerald);
-      background: rgba(52, 211, 153, 0.08);
     }
   </style>
 </head>
@@ -425,7 +354,7 @@
 
   <div class="ambient-bg"></div>
 
-  <!-- Top Floating Navigation & Tools -->
+  <!-- Header Controls -->
   <div class="header-bar">
     <div class="header-title">
       <span>IDEIS 2026/27</span> &bull; TWORZENIE STRON WWW & SYSTEMY CMS &bull; <span>WYKŁAD 01</span>
@@ -441,7 +370,7 @@
         <i class="fa-solid fa-table-cells"></i> Przegląd
       </button>
       <a href="index.html" class="ctrl-btn">
-        <i class="fa-solid fa-house"></i> Portal Wykładów
+        <i class="fa-solid fa-house"></i> Portal
       </a>
     </div>
   </div>
@@ -449,821 +378,723 @@
   <div class="reveal">
     <div class="slides">
 
-      <!-- ==================== SLAJD 1: TYTUŁOWY ==================== -->
+      <!-- ==================== SLAJD 1: TYTUŁ ==================== -->
       <section class="center-slide">
-        <div class="badge emerald"><i class="fa-solid fa-bolt"></i> Inauguracja Semestru Zimowego 2026/2027</div>
-        <h1 style="font-size: 2.8em !important; margin-bottom: 10px;">
+        <div class="badge emerald"><i class="fa-solid fa-graduation-cap"></i> Semestr Zimowy 2026/2027 &bull; IDEIS</div>
+        <h1 style="margin-bottom: 8px;">
           Tworzenie Stron WWW<br>
           <span class="grad-cyan">oraz Systemy CMS</span>
         </h1>
-        <p style="font-size: 1.1em; color: var(--text-muted); margin-bottom: 25px;">
-          Wykład 1: Ewolucja Internetu, architektura nowoczesnego webu, narzędzia i krajobraz CMS
+        <p style="font-size: 1.05em; color: var(--text-muted); margin-bottom: 20px;">
+          Wykład 1: Fundamenty HTML &amp; CSS, warsztat dewelopera, filozofia pracy i wprowadzenie do CMS
         </p>
-        
-        <div style="display: flex; gap: 30px; justify-content: center; align-items: center; margin-top: 15px;">
-          <div style="text-align: left; background: var(--bg-card); padding: 12px 20px; border-radius: 10px; border: 1px solid var(--border-subtle);">
-            <div style="font-size: 0.7em; color: var(--text-muted); text-transform: uppercase;">Prowadzący</div>
-            <div style="font-weight: 700; color: #fff; font-size: 0.95em;">mgr inż. Przemysław Żarnecki</div>
+
+        <div style="display: flex; gap: 20px; justify-content: center; align-items: center; margin-bottom: 20px;">
+          <div class="card" style="padding: 10px 18px; text-align: left;">
+            <div style="font-size: 0.68em; color: var(--text-muted); text-transform: uppercase;">Prowadzący</div>
+            <div style="font-weight: 700; color: #fff; font-size: 0.9em;">mgr inż. Przemysław Żarnecki</div>
           </div>
-          <div style="text-align: left; background: var(--bg-card); padding: 12px 20px; border-radius: 10px; border: 1px solid var(--border-subtle);">
-            <div style="font-size: 0.7em; color: var(--text-muted); text-transform: uppercase;">Czas zajęć</div>
-            <div style="font-weight: 700; color: var(--amber); font-size: 0.95em; font-family: 'JetBrains Mono', monospace;">13:30 – 15:20 (Plan do 15:45)</div>
+          <div class="card" style="padding: 10px 18px; text-align: left;">
+            <div style="font-size: 0.68em; color: var(--text-muted); text-transform: uppercase;">Czas wykładu</div>
+            <div style="font-weight: 700; color: var(--amber); font-size: 0.9em; font-family: 'JetBrains Mono', monospace;">13:30 – 15:20 (Plan do 15:45)</div>
           </div>
-          <div style="text-align: left; background: var(--bg-card); padding: 12px 20px; border-radius: 10px; border: 1px solid var(--border-subtle);">
-            <div style="font-size: 0.7em; color: var(--text-muted); text-transform: uppercase;">Repozytorium przykładów</div>
-            <div style="font-weight: 700; color: var(--cyan); font-size: 0.95em; font-family: 'JetBrains Mono', monospace;">dev.zarnecki.org/pz-teacher</div>
+          <div class="card" style="padding: 10px 18px; text-align: left;">
+            <div style="font-size: 0.68em; color: var(--text-muted); text-transform: uppercase;">Przykłady kodu</div>
+            <div style="font-weight: 700; color: var(--cyan); font-size: 0.9em; font-family: 'JetBrains Mono', monospace;">dev.zarnecki.org/pz-teacher</div>
           </div>
         </div>
 
-        <div style="margin-top: 30px; font-size: 0.75em; color: var(--text-muted);">
-          Naciśnij <span class="keycap">Spacja</span> lub <span class="keycap">&rarr;</span> aby przejść dalej | <span class="keycap">F</span> pełny ekran | <span class="keycap">ESC</span> przegląd
+        <div style="font-size: 0.72em; color: var(--text-muted);">
+          Nawigacja: <span class="keycap">&rarr;</span> lub <span class="keycap">Spacja</span> | <span class="keycap">F</span> pełny ekran | <span class="keycap">ESC</span> przegląd slajdów
         </div>
       </section>
 
-      <!-- ==================== SLAJD 2: AGENDA I CEL ==================== -->
+      <!-- ==================== SLAJD 2: PLAN PRACY ==================== -->
       <section>
-        <div class="badge"><i class="fa-solid fa-list-check"></i> Plan dzisiejszego spotkania</div>
-        <h2>O czym dzisiaj porozmawiamy?</h2>
-        <div class="grid-4">
-          <div class="card card-accent-top">
-            <div class="mono" style="color: var(--cyan); font-size: 0.85em; margin-bottom: 5px;">01. ARCHITEKTURA</div>
-            <h3>Jak działa sieć?</h3>
-            <p>Od wpisania adresu w przeglądarce, przez DNS, TLS 1.3 i HTTP/3, po krytyczną ścieżkę renderowania (DOM + CSSOM).</p>
+        <div class="badge"><i class="fa-solid fa-compass"></i> Zakres tematyczny</div>
+        <h2>Plan Pracy – Co Poznamy w Tym Semestrze?</h2>
+        <div class="grid-2">
+          <div class="card card-accent-cyan">
+            <h3><i class="fa-solid fa-code"></i> Fundamenty i Kod</h3>
+            <ul style="padding-left: 18px; font-size: 0.82em;">
+              <li><strong>HTML5 &amp; CSS3:</strong> semantyka, struktura, nowoczesne układy (Grid, Flexbox), płynna typografia.</li>
+              <li><strong>Odrobina PHP &amp; JavaScript:</strong> w zdrowej, wyważonej proporcji – na tyle, by rozumieć mechanikę szablonów i API.</li>
+              <li><strong>Wygląd vs Kod:</strong> estetyka i typografia spotykająca czystą architekturę techniczną.</li>
+            </ul>
           </div>
           <div class="card card-accent-purple">
-            <div class="mono" style="color: var(--purple); font-size: 0.85em; margin-bottom: 5px;">02. TOOLING 2026</div>
-            <h3>Nowoczesny Warsztat</h3>
-            <p>Żegnamy edytory z lat 90. i FTP. Wkraczają: VS Code, Git, GitHub Pages, Cloudflare Pages, Linux i konteneryzacja.</p>
-          </div>
-          <div class="card card-accent-emerald">
-            <div class="mono" style="color: var(--emerald); font-size: 0.85em; margin-bottom: 5px;">03. CMS TRINITY</div>
-            <h3>Świat CMS</h3>
-            <p>Monolit vs Headless. Porównanie WordPress ("ble" i dlaczego?), potęga Joomla oraz świeżość nowoczesnego Ghost CMS.</p>
-          </div>
-          <div class="card card-accent-astro">
-            <div class="mono" style="color: var(--astro-color); font-size: 0.85em; margin-bottom: 5px;">04. REGULAMIN I GRA</div>
-            <h3>Zasady i Zaliczenie</h3>
-            <p>Warunki zaliczenia, 10 ambitnych projektów lub 5 zadań laboratoryjnych, harmonogram grup oraz kalendarz konsultacji.</p>
+            <h3><i class="fa-solid fa-cubes"></i> Systemy CMS &amp; Frameworki</h3>
+            <ul style="padding-left: 18px; font-size: 0.82em;">
+              <li><strong>Trzy Filary CMS:</strong> WordPress (rynkowy gigant), Joomla (inżynierskie ACL) oraz Ghost CMS (nowoczesny Node.js &amp; Markdown).</li>
+              <li><strong>Nowe podejście – Astro:</strong> generowanie stron statycznych, architektura wysp (Islands) i Zero JS.</li>
+              <li><strong>Samodzielna praca:</strong> od tworzenia stron dla małych klientów po pracę w zespołach.</li>
+            </ul>
           </div>
         </div>
         <div class="callout emerald">
-          <strong>Cel wykładu:</strong> Uporządkowanie współczesnego ekosystemu webowego. Po dzisiejszym spotkaniu dokładnie zrozumiecie, w jakiej technologii warto budować dany projekt i jak nie utknąć w rozwiązaniach sprzed 15 lat.
+          <strong>Cel przedmiotu:</strong> Przejście drogi od stworzenia własnej strony w kodzie, przez zrozumienie ograniczeń surowego HTML, aż po wdrożenie i customizację nowoczesnych systemów CMS.
         </div>
       </section>
 
-      <!-- ==================== SLAJD 3: DLACZEGO TO ROBIMY? ==================== -->
+      <!-- ==================== SLAJD 3: ZASADNICZE PYTANIE ==================== -->
       <section>
-        <div class="badge rose"><i class="fa-solid fa-triangle-exclamation"></i> Rzeczywistość branżowa</div>
-        <h2>Koniec z podejściem "Pajączek &amp; FTP na serwer cba.pl"</h2>
-        <div class="grid-2">
-          <div class="card" style="border-left: 4px solid var(--rose);">
-            <h3 style="color: var(--rose);"><i class="fa-solid fa-clock-rotate-left"></i> Jak uczono tworzenia stron 15 lat temu?</h3>
-            <ul style="padding-left: 20px;">
-              <li>Piszemy HTML w Notatniku lub Pajączku bez żadnego lintera.</li>
-              <li>Style wrzucane inline lub tabele służące do pozycjonowania layoutu (<code>&lt;table&gt;</code>).</li>
-              <li>Wgrywanie plików ręcznie przez <strong>FileZilla / Total Commander</strong> bezpośrednio do <code>/public_html</code>.</li>
-              <li>Brak kontroli wersji: pliki <code>index_final_v2_naprawione.html</code>.</li>
-              <li>WordPress instalowany na tanim hostingu współdzielonym bez kopii zapasowych, podatny na boty.</li>
-            </ul>
-          </div>
-          <div class="card" style="border-left: 4px solid var(--emerald);">
-            <h3 style="color: var(--emerald);"><i class="fa-solid fa-rocket"></i> Standard inżynierski w 2026/2027:</h3>
-            <ul style="padding-left: 20px;">
-              <li><strong>Semantyczny HTML5 &amp; CSS Modern:</strong> CSS Grid, Flexbox, custom properties, dostępność (WCAG/a11y).</li>
-              <li><strong>Wersjonowanie:</strong> Git jako jedyne źródło prawdy (Single Source of Truth).</li>
-              <li><strong>CI/CD i Hosting Edge:</strong> Automatyczny deploy z <code>git push</code> na <strong>GitHub Pages</strong> lub <strong>Cloudflare Pages</strong>.</li>
-              <li><strong>Infrastruktura:</strong> Kontenery Podman/Docker, serwery Linux (Ubuntu/Debian), reverse proxy (Caddy/Nginx) z auto-SSL.</li>
-              <li><strong>CMS:</strong> Architektura Headless, API-first (Ghost, Astro, headless WP).</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==================== SLAJD 4: ANATOMIA SIECI ==================== -->
-      <section>
-        <div class="badge"><i class="fa-solid fa-network-wired"></i> Pod maską Internetu</div>
-        <h2>Co się dzieje po wpisaniu adresu w przeglądarce?</h2>
-        
-        <div class="arch-flow">
-          <div class="arch-node">
-            <div class="title"><i class="fa-solid fa-keyboard"></i> Adres URL</div>
-            <div class="desc">https://twojadomena.pl</div>
-          </div>
-          <div class="arch-arrow">&rarr;</div>
-          <div class="arch-node">
-            <div class="title"><i class="fa-solid fa-server"></i> Rekursywny DNS</div>
-            <div class="desc">Zamiana nazwy na IP (A / AAAA)</div>
-          </div>
-          <div class="arch-arrow">&rarr;</div>
-          <div class="arch-node">
-            <div class="title"><i class="fa-solid fa-handshake"></i> TLS 1.3 / TCP</div>
-            <div class="desc">Handshake &bull; Certyfikat SSL</div>
-          </div>
-          <div class="arch-arrow">&rarr;</div>
-          <div class="arch-node">
-            <div class="title"><i class="fa-solid fa-cloud"></i> Serwer / CDN</div>
-            <div class="desc">Reverse Proxy &bull; Cache &bull; Nginx</div>
-          </div>
-          <div class="arch-arrow">&rarr;</div>
-          <div class="arch-node">
-            <div class="title"><i class="fa-solid fa-window-maximize"></i> Przeglądarka</div>
-            <div class="desc">Odebranie strumienia HTML</div>
-          </div>
-        </div>
-
-        <div class="grid-3" style="margin-top: 15px;">
-          <div class="card">
-            <h3>HTTP/1.1 vs HTTP/2 vs HTTP/3</h3>
-            <p><strong>HTTP/1.1:</strong> Jedno żądanie na połączenie (head-of-line blocking). Wymagało łączenia skryptów w jeden plik.</p>
-            <p><strong>HTTP/2:</strong> Multipleksowanie połączeń na jednym gnieździe TCP.</p>
-            <p><strong>HTTP/3 (QUIC):</strong> Oparte na protokole UDP! Zero blokowania przy utracie pakietów, błyskawiczny handshake.</p>
-          </div>
-          <div class="card">
-            <h3>DNS &amp; Rekordy domenowe</h3>
-            <p><strong>A / AAAA:</strong> Wskazują adres IPv4 / IPv6 hosta.</p>
-            <p><strong>CNAME:</strong> Alias do innej nazwy domenowej (używane np. w GitHub Pages i Cloudflare Pages).</p>
-            <p><strong>TXT:</strong> Weryfikacja własności, SPF, DKIM.</p>
-          </div>
-          <div class="card">
-            <h3>Bezpieczeństwo: HTTPS &amp; TLS</h3>
-            <p>W 2026 r. brak HTTPS oznacza odrzucenie przez przeglądarki i spadek w SEO.</p>
-            <p>Certyfikaty <strong>Let's Encrypt</strong> i automatyzacja w serwerach takich jak <strong>Caddy</strong> zdejmują z nas manualną pracę.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==================== SLAJD 5: CRITICAL RENDERING PATH ==================== -->
-      <section>
-        <div class="badge purple"><i class="fa-solid fa-microchip"></i> Jak myśli przeglądarka</div>
-        <h2>Krytyczna Ścieżka Renderowania (Critical Rendering Path)</h2>
-        <p>Przeglądarka nie jest zwykłym wyświetlaczem tekstu – to potężny silnik kompilacji i kompozycji graficznej.</p>
-
-        <div class="grid-2" style="margin-top: 15px;">
-          <div class="card card-accent-top">
-            <h3>Krok po kroku: Silnik Blink / Gecko</h3>
-            <ol style="padding-left: 20px; font-size: 0.82em; line-height: 1.6;">
-              <li><strong>Parsowanie HTML &rarr; Drzewo DOM</strong> (Document Object Model). Każdy tag staje się węzłem w pamięci.</li>
-              <li><strong>Parsowanie CSS &rarr; Drzewo CSSOM</strong> (CSS Object Model). Przeglądarka liczy kaskadę stylów.</li>
-              <li><strong>Łączenie &rarr; Drzewo Renderowania (Render Tree):</strong> Zawiera tylko widoczne elementy (pomija <code>display: none</code>).</li>
-              <li><strong>Układ (Layout / Reflow):</strong> Wyliczanie geometrii każdego elementu (szerokość, współrzędne X/Y).</li>
-              <li><strong>Rysowanie (Paint):</strong> Wypełnianie pikseli (kolory, tła, cienie).</li>
-              <li><strong>Kompozycja (Composite):</strong> Składanie warstw przez procesor karty graficznej (GPU).</li>
-            </ol>
-          </div>
-          <div class="card card-accent-purple">
-            <h3>Wskazówka wydajnościowa dla inżyniera:</h3>
-            <div class="callout amber" style="margin-top: 5px;">
-              <strong>Dlaczego to ma znaczenie?</strong><br>
-              Zmiana właściwości takich jak <code>width</code>, <code>margin</code> czy <code>top</code> wymusza ponowny <strong>Layout</strong> i <strong>Paint</strong> dla całego drzewa (spadek FPS na smartfonach).
-            </div>
-            <p style="font-size: 0.8em;">Animacje wykonujemy wyłącznie na właściwościach kompozytora GPU:</p>
-            <pre><code class="language-css">/* ZŁE - wymusza kosztowny Reflow */
-.box:hover { left: 50px; width: 200px; }
-
-/* DOBRE - operuje na GPU (Composite only) */
-.box:hover { transform: translateX(50px) scale(1.1); }</code></pre>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==================== SLAJD 6: SEMANTYKA HTML5 ==================== -->
-      <section>
-        <div class="badge emerald"><i class="fa-solid fa-code"></i> Fundamenty</div>
-        <h2>Semantyczny HTML5: Dlaczego &lt;div&gt; to ostateczność?</h2>
-        
-        <div class="grid-2">
-          <div>
-            <p>Strona www to nie tylko kolorowy obrazek na monitorze. Czytają ją:</p>
-            <ul style="padding-left: 20px;">
-              <li>Czytniki ekranu osób z niepełnosprawnościami (Screen Readers - NVDA, VoiceOver).</li>
-              <li>Roboty wyszukiwarek (Googlebot, Bingbot) indeksujące treść dla SEO.</li>
-              <li>Tryby czytania w przeglądarkach (Safari Reader, Firefox Reader Mode).</li>
-            </ul>
-            <div class="callout emerald" style="margin-top: 15px;">
-              <strong>Złota reguła:</strong> Używaj znacznika o najściślejszym znaczeniu semantycznym. Jeśli to przycisk – użyj <code>&lt;button&gt;</code>, a nie <code>&lt;div onclick="..."&gt;</code>!
-            </div>
-          </div>
-          <div>
-            <pre><code class="language-html">&lt;!-- Nowoczesny szkielet semantyczny --&gt;
-&lt;header&gt;
-  &lt;nav aria-label="Główna nawigacja"&gt;
-    &lt;ul&gt;&lt;li&gt;&lt;a href="#start"&gt;Start&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
-  &lt;/nav&gt;
-&lt;/header&gt;
-
-&lt;main&gt;
-  &lt;article&gt;
-    &lt;h1&gt;Ewolucja protokołów sieciowych&lt;/h1&gt;
-    &lt;section&gt;
-      &lt;h2&gt;Wprowadzenie do QUIC&lt;/h2&gt;
-      &lt;p&gt;Protokół QUIC redukuje opóźnienia...&lt;/p&gt;
-    &lt;/section&gt;
-  &lt;/article&gt;
-
-  &lt;aside aria-label="Powiązane materiały"&gt;
-    &lt;h3&gt;Warto przeczytać&lt;/h3&gt;
-  &lt;/aside&gt;
-&lt;/main&gt;
-
-&lt;footer&gt;
-  &lt;p&gt;&amp;copy; 2026 Uczelnia IDEIS&lt;/p&gt;
-&lt;/footer&gt;</code></pre>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==================== SLAJD 7: NOWOCZESNY CSS ==================== -->
-      <section>
-        <div class="badge"><i class="fa-brands fa-css3-alt"></i> Nowa era CSS</div>
-        <h2>Współczesny CSS: Siła prostoty bez zbędnych frameworków</h2>
-        
+        <div class="badge amber"><i class="fa-solid fa-crosshairs"></i> Ścieżki rozwoju</div>
+        <h2>Zasadnicze Pytanie: Co i w Jaki Sposób Chcemy Robić?</h2>
         <div class="grid-3">
-          <div class="card card-accent-top">
-            <h3>1. Flexbox vs CSS Grid</h3>
-            <p><strong>Flexbox:</strong> Układ 1-wymiarowy (wiersz LUB kolumna). Idealny do nawigacji, pasków narzędzi i wyśrodkowania elementów.</p>
-            <p><strong>CSS Grid:</strong> Układ 2-wymiarowy (wiersze ORAZ kolumny jednocześnie). Król układu całych podstron i galerii.</p>
-            <pre><code class="language-css">/* Święty Graal responsywnego grida: */
-.grid {
-  display: grid;
-  grid-template-columns: 
-    repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}</code></pre>
+          <div class="card card-accent-cyan">
+            <h3>1. Mały Klient / Freelance</h3>
+            <p><strong>Szybkość i samodzielność.</strong></p>
+            <p>Tworzenie od podstaw (HTML/CSS) lub wdrażanie systemów CMS (WordPress, Ghost). Klient oczekuje gotowej witryny, możliwości edycji treści bez programisty oraz niskich kosztów hostingu.</p>
           </div>
-
           <div class="card card-accent-purple">
-            <h3>2. Zmienne (Custom Properties)</h3>
-            <p>Natywny system motywów, dynamiczna zmiana kolorów w locie i brak potrzeby preprocesorów (Sass/Less) dla prostych projektów.</p>
-            <pre><code class="language-css">:root {
-  --primary: #38bdf8;
-  --bg: #0f172a;
-}
-
-[data-theme="light"] {
-  --primary: #0284c7;
-  --bg: #ffffff;
-}
-
-button {
-  background-color: var(--primary);
-}</code></pre>
+            <h3>2. Ambitniej / Jamstack</h3>
+            <p><strong>Wydajność i nowoczesny kod.</strong></p>
+            <p>Frameworki komponentowe (Astro, React), szablony blokowe, generatory statyczne. Łączenie panelu CMS z czystym, ultraszybkim frontendem zasilanym przez REST API.</p>
           </div>
-
           <div class="card card-accent-emerald">
-            <h3>3. Płynna typografia &amp; :has()</h3>
-            <p>Funkcja <code>clamp()</code> pozwala zapomnieć o setkach reguł <code>@media</code> dla każdego rozmiaru ekranu.</p>
-            <pre><code class="language-css">/* Płynny nagłówek min 24px, max 48px */
-h1 {
-  font-size: clamp(1.5rem, 4vw, 3rem);
-}
-
-/* Selektor rodzica :has() - rewolucja! */
-figure:has(figcaption) {
-  border: 1px solid #e2e8f0;
-}</code></pre>
+            <h3>3. Korporacja / Duże Projekty</h3>
+            <p><strong>Ścisła specjalizacja.</strong></p>
+            <p>Koniec ery uniwersalnych samotników. Podział ról: Frontend developer, Backend engineer, UI/UX designer, Content specialist. Zaawansowane uprawnienia (Joomla ACL, Headless CMS).</p>
           </div>
+        </div>
+        <div class="callout">
+          W tym semestrze każdy z Was sprawdzi się w obu rolach – kodując od zera oraz wdrażając gotowe systemy do zarządzania treścią.
         </div>
       </section>
 
-      <!-- ==================== SLAJD 8: HOSTING STATYCZNY & EDGE ==================== -->
+      <!-- ==================== SLAJD 4: NARZĘDZIA DEWELOPERA ==================== -->
       <section>
-        <div class="badge cyan"><i class="fa-solid fa-cloud-arrow-up"></i> Architektura wdrożeń</div>
-        <h2>Hosting Nowej Generacji: GitHub Pages &amp; Cloudflare Pages</h2>
-        <p>Dlaczego w 2026 roku nie płacimy za hosting dla statycznych stron i portfolio?</p>
-
-        <div class="grid-2" style="margin-top: 15px;">
-          <div class="card card-accent-top">
-            <h3 style="color: var(--cyan);"><i class="fa-brands fa-github"></i> GitHub Pages</h3>
-            <ul style="padding-left: 20px;">
-              <li>Wbudowany bezpośrednio w repozytorium kodu.</li>
-              <li>Darmowy hosting z automatycznym certyfikatem HTTPS (Let's Encrypt).</li>
-              <li>Wdrożenie z gałęzi <code>main</code> lub przez <strong>GitHub Actions</strong>.</li>
-              <li>Własna domena z obsługą DNS (CNAME).</li>
-              <li><strong>Idealny dla:</strong> dokumentacji, prac laboratoryjnych, prezentacji tego wykładu!</li>
-            </ul>
-          </div>
-
-          <div class="card card-accent-purple">
-            <h3 style="color: var(--purple);"><i class="fa-solid fa-bolt"></i> Cloudflare Pages</h3>
-            <ul style="padding-left: 20px;">
-              <li>Globalna sieć <strong>Anycast CDN</strong> w ponad 300 miastach na świecie (w tym Warszawa).</li>
-              <li>Czasy odpowiedzi rzędu &lt; 20ms dla użytkowników na całym globie.</li>
-              <li>Wbudowane funkcje <strong>Edge Workers</strong> (kawałki kodu JavaScript wykonywane na brzegu sieci).</li>
-              <li>Nielimitowany darmowy transfer danych!</li>
-              <li>Wsparcie dla automatycznego budowania projektów Astro, React, Vite.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="callout emerald">
-          <strong>Na naszych laboratoriach:</strong> Każdy student opanuje wdrożenie strony z poziomu terminala i gita na platformy GitHub Pages oraz Cloudflare Pages.
-        </div>
-      </section>
-
-      <!-- ==================== SLAJD 9: INFRASTRUKTURA LINUX & KONTENERY ==================== -->
-      <section>
-        <div class="badge rose"><i class="fa-brands fa-docker"></i> Infrastruktura własna</div>
-        <h2>Serwery Linux, Podman &amp; Docker – Gdy potrzebujemy backendu i baz</h2>
-        <p>Co zrobić, gdy strona wymaga bazy danych (MySQL, PostgreSQL) lub interpretera PHP / Node.js?</p>
-
-        <div class="grid-3" style="margin-top: 15px;">
-          <div class="card card-accent-top">
-            <h3>Własny Linux (VPS)</h3>
-            <p>Tani serwer VPS (np. Hetzner, OVH, DigitalOcean za 15-20 zł/mc) daje pełną wolność i kontrolę root.</p>
-            <p>System operacyjny: <strong>Debian</strong> lub <strong>Ubuntu LTS</strong> – stabilność i bezpieczeństwo.</p>
-          </div>
-
-          <div class="card card-accent-emerald">
-            <h3>Podman / Docker</h3>
-            <p>Nie instalujemy PHP i MySQL bezpośrednio w systemie! Zamykamy aplikacje w izolowanych kontenerach.</p>
-            <p><strong>Podman:</strong> Bezpieczniejszy odpowiednik Dockera (daemonless, rootless out-of-the-box).</p>
-            <p>Wszystko definiowane w plikach <code>compose.yaml</code>.</p>
-          </div>
-
-          <div class="card card-accent-purple">
-            <h3>Reverse Proxy (Caddy / Nginx)</h3>
-            <p>Serwer przyjmujący ruch na porcie 80 i 443, kierujący go do odpowiednich kontenerów.</p>
-            <p><strong>Caddy:</strong> Automatycznie pobiera i odnawia certyfikaty SSL z Let's Encrypt bez konfiguracji certbota!</p>
-          </div>
-        </div>
-
-        <div style="margin-top: 10px;">
-          <pre><code class="language-yaml"># Przykładowy compose.yaml dla WordPressa / Ghosta:
-services:
-  ghost-app:
-    image: ghost:5-alpine
-    restart: always
-    environment:
-      url: https://twoj-blog.pl
-    ports:
-      - "2368:2368"
-    volumes:
-      - ./ghost-data:/var/lib/ghost/content</code></pre>
-        </div>
-      </section>
-
-      <!-- ==================== SLAJD 10: CO TO JEST CMS? ==================== -->
-      <section>
-        <div class="badge"><i class="fa-solid fa-cubes"></i> Systemy Zarządzania Treścią</div>
-        <h2>Czym jest CMS i dlaczego podbił Internet?</h2>
-        
+        <div class="badge"><i class="fa-solid fa-screwdriver-wrench"></i> Warsztat</div>
+        <h2>Współczesne Narzędzia Webmastera (Żegnamy Pajączka)</h2>
         <div class="grid-2">
-          <div>
-            <p><strong>CMS (Content Management System)</strong> to oprogramowanie umożliwiające tworzenie, edycję, organizację i publikację treści cyfrowych bez konieczności bezpośredniej edycji kodu źródłowego strony przez autora.</p>
-            <h3 style="margin-top: 15px; color: var(--cyan);">Kluczowe moduły klasycznego CMS:</h3>
-            <ul style="padding-left: 20px;">
-              <li><strong>Warstwa danych:</strong> Relacyjna baza danych (MySQL/MariaDB, PostgreSQL) lub pliki Flat-File / Markdown.</li>
-              <li><strong>Panel administracyjny (Back-office):</strong> Logowanie, zarządzanie użytkownikami, edytory WYSIWYG / Markdown.</li>
-              <li><strong>Warstwa prezentacji (Front-end):</strong> Silnik szablonów renderujący HTML dla odwiedzających.</li>
-              <li><strong>System wtyczek / rozszerzeń:</strong> Możliwość dobudowywania funkcjonalności (e-commerce, formularze, SEO).</li>
+          <div class="card">
+            <h3 style="color: var(--cyan);"><i class="fa-solid fa-laptop-code"></i> Edytory Kodu (2026/27)</h3>
+            <ul style="padding-left: 18px; font-size: 0.82em;">
+              <li><strong>Visual Studio Code:</strong> bezdyskusyjny standard rynkowy z potężnym ekosystemem rozszerzeń.</li>
+              <li><strong>Zed / Cursor:</strong> nowoczesne, ultraszybkie edytory nowej generacji.</li>
+              <li><strong>Pomoce:</strong> Live Server (automatyczny podgląd w przeglądarce), Prettier (formatowanie), ESLint.</li>
+              <li><em>Historycznie:</em> Pajączek, Aptana, Notepad++ – miały swój czas, ale dzisiejszy rynek wymaga narzędzi ze wsparciem TypeScript i Gita.</li>
             </ul>
           </div>
-          <div>
-            <div class="card card-accent-top">
-              <h3>Architektura tradycyjna (Monolit)</h3>
-              <p style="font-size: 0.8em; color: var(--text-muted);">Baza danych, logika biznesowa i widok HTML są ściśle splecione w jednym procesie serwerowym.</p>
-              <div style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.75em; margin: 10px 0;">
-                [Baza Danych] &harr; [PHP / Logika] &harr; [Szablon HTML] &rarr; Użytkownik
-              </div>
-            </div>
-            <div class="card card-accent-purple" style="margin-top: 15px;">
-              <h3>Architektura nowoczesna (Headless CMS)</h3>
-              <p style="font-size: 0.8em; color: var(--text-muted);">CMS zarządza TYLKO treścią i udostępnia ją jako REST API lub GraphQL. Frontend tworzymy w dowolnej technologii (Astro, React, czysty HTML).</p>
-              <div style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.75em; margin: 10px 0;">
-                [Headless CMS] &rarr; JSON API &rarr; [Astro / Szybki CDN] &rarr; Użytkownik
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==================== SLAJD 11: WIELKA TRÓJKA SEMESTRU ==================== -->
-      <section class="center-slide">
-        <div class="badge"><i class="fa-solid fa-trophy"></i> Rdzeń programowy semestru</div>
-        <h2 style="font-size: 2.2em !important;">Trzy Filary CMS na Naszych Zajęciach</h2>
-        <p style="color: var(--text-muted); max-width: 800px; margin: 0 auto 30px auto;">
-          W tym semestrze nie ograniczymy się do jednej platformy. Przetestujemy trzy zupełnie różne filozofie podejścia do zarządzania treścią.
-        </p>
-
-        <div class="grid-3" style="text-align: left; width: 100%;">
-          <div class="card card-accent-wp">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <span class="badge" style="background: rgba(33, 117, 155, 0.2); color: #38bdf8; border-color: #21759b;">Rynkowy Gigant</span>
-              <i class="fa-brands fa-wordpress" style="font-size: 2em; color: var(--wp-color);"></i>
-            </div>
-            <h3 style="color: #fff; margin-top: 10px;">WordPress</h3>
-            <p><strong>~40% globalnego internetu.</strong> Klasyczny monolit PHP/MySQL, wszechobecny na rynku pracy. Sprawdzimy dlaczego budzi skrajne emocje ("ble") i jak użyć go profesjonalnie w trybie Headless.</p>
-          </div>
-
-          <div class="card card-accent-joomla">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <span class="badge" style="background: rgba(249, 115, 22, 0.2); color: #fb923c; border-color: #f97316;">Struktura &amp; ACL</span>
-              <i class="fa-brands fa-joomla" style="font-size: 2em; color: var(--joomla-color);"></i>
-            </div>
-            <h3 style="color: #fff; margin-top: 10px;">Joomla</h3>
-            <p><strong>Potęga ról i uprawnień.</strong> Wielojęzyczność z pudełka, zaawansowane grupy uprawnień (ACL), czystszy podział MVC niż w WordPressie. Niezastąpiona w portalach publicznych i intranetach.</p>
-          </div>
-
-          <div class="card card-accent-ghost">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <span class="badge" style="background: rgba(244, 63, 94, 0.2); color: #fb7185; border-color: #f43f5e;">Nowoczesność</span>
-              <i class="fa-solid fa-ghost" style="font-size: 2em; color: var(--ghost-color);"></i>
-            </div>
-            <h3 style="color: #fff; margin-top: 10px;">Ghost CMS</h3>
-            <p><strong>Świeży powiew: Node.js &amp; Markdown.</strong> Niezrównana szybkość, czyste API, genialny edytor treści, wbudowane subskrypcje i newslettery. Nowy król dla twórców, blogerów i zespołów dev.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==================== SLAJD 12: WORDPRESS GŁĘBIEJ ==================== -->
-      <section>
-        <div class="badge" style="color: #38bdf8; border-color: #21759b;"><i class="fa-brands fa-wordpress"></i> CMS #1</div>
-        <h2>WordPress – Dlaczego "ble", a dlaczego musimy go znać?</h2>
-        
-        <div class="grid-2">
-          <div class="card" style="border-left: 4px solid var(--rose);">
-            <h3 style="color: var(--rose);"><i class="fa-solid fa-thumbs-down"></i> Ciemna strona WordPressa ("ble"):</h3>
-            <ul style="padding-left: 20px;">
-              <li><strong>Piekło wtyczek (Plugin Hell):</strong> Instalacja 40 wtyczek spowalnia stronę do zera i generuje konflikty.</li>
-              <li><strong>Luki bezpieczeństwa:</strong> Najpopularniejszy cel ataków botów na świecie (nieaktualne wtyczki to 95% wektorów włamań).</li>
-              <li><strong>Dług technologiczny:</strong> Dziedzictwo architektury sprzed ponad 20 lat (struktura tabel <code>wp_options</code> i <code>wp_postmeta</code>).</li>
-              <li><strong>Ociężałe page-buildery:</strong> Elementor i Divi potrafią generować 30 zagnieżdżonych divów dla jednego przycisku.</li>
-            </ul>
-          </div>
-
-          <div class="card" style="border-left: 4px solid var(--emerald);">
-            <h3 style="color: var(--emerald);"><i class="fa-solid fa-thumbs-up"></i> Jak robić to jak inżynier (2026/27):</h3>
-            <ul style="padding-left: 20px;">
-              <li><strong>Lekkie szablony blokowe:</strong> Natywny edytor Gutenberg i Full Site Editing (FSE) bez zewnętrznych kobył.</li>
-              <li><strong>Headless WordPress:</strong> WordPress służy wyłącznie jako panel wprowadzania treści. Dane pobieramy przez <strong>WP REST API</strong> do frontendu w Astro.</li>
-              <li><strong>Twarde zabezpieczenia:</strong> Wyłączenie XML-RPC, dwuskładnikowe logowanie (2FA), restrykcyjne nagłówki bezpieczeństwa i konteneryzacja.</li>
-              <li><strong>Rynkowa prawda:</strong> Klienci pytają o WordPressa w 7 na 10 zleceń komercyjnych.</li>
+          <div class="card">
+            <h3 style="color: var(--purple);"><i class="fa-solid fa-wand-magic-sparkles"></i> Wspomagacze Wizualne i Biblioteki</h3>
+            <ul style="padding-left: 18px; font-size: 0.82em;">
+              <li><strong>Bootstrap:</strong> najpopularniejszy zbiór gotowych komponentów i siatki (od lat ułatwia szybki start).</li>
+              <li><strong>Tailwind CSS:</strong> podejście Utility-First dominujące w nowoczesnych projektach.</li>
+              <li><strong>Kreatory wizualne (NicePage itp.):</strong> przydatne do szybkiego prototypowania, ale inżynier musi rozumieć wygenerowany kod!</li>
             </ul>
           </div>
         </div>
       </section>
 
-      <!-- ==================== SLAJD 13: JOOMLA GŁĘBIEJ ==================== -->
+      <!-- ==================== SLAJD 5: ANATOMIA DOKUMENTU HTML ==================== -->
       <section>
-        <div class="badge" style="color: #fb923c; border-color: #f97316;"><i class="fa-brands fa-joomla"></i> CMS #2</div>
-        <h2>Joomla – Niewykorzystany potencjał korporacyjny</h2>
-        
+        <div class="badge cyan"><i class="fa-brands fa-html5"></i> Fundament #1</div>
+        <h2>HTML: Język Struktury Dokumentu WWW</h2>
         <div class="grid-2">
           <div>
-            <p>Podczas gdy uwaga marketingu skupia się na WordPressie, <strong>Joomla 5</strong> rozwija się jako wyjątkowo solidne, inżynierskie środowisko do złożonych portali.</p>
-            <div class="card card-accent-joomla" style="margin-top: 15px;">
-              <h3>Mocne strony architektury Joomli:</h3>
-              <ul style="padding-left: 20px;">
-                <li><strong>Zaawansowany system ACL:</strong> Wielopoziomowe uprawnienia do edycji, publikacji i widoczności każdej pojedynczej kategorii czy modułu.</li>
-                <li><strong>Wielojęzyczność (Multilingual):</strong> Wbudowana natywnie bez konieczności płatnych wtyczek (w przeciwieństwie do WPML w WordPressie).</li>
-                <li><strong>Własne pola (Custom Fields):</strong> Tworzenie ustrukturyzowanych danych bez zewnętrznych dodatków.</li>
-                <li><strong>Brak monolitycznego narzutu:</strong> Czysty wzorzec MVC (Model-View-Controller) w komponentach.</li>
-              </ul>
-            </div>
+            <p><strong>HTML (HyperText Markup Language)</strong> to kręgosłup każdej strony. Składa się z komend ujętych w nawiasy ostre <code>&lt;znacznik&gt;</code>:</p>
+            <ul style="padding-left: 18px; font-size: 0.82em;">
+              <li><code>&lt;html lang="pl-PL"&gt;</code> – deklaracja języka i początek dokumentu.</li>
+              <li><code>&lt;head&gt;</code> – sekcja nagłówkowa (metadane, tytuł, style, skrypty – niewidoczne bezpośrednio na stronie).</li>
+              <li><code>&lt;title&gt;</code> – tytuł karty w oknie przeglądarki.</li>
+              <li><code>&lt;body&gt;</code> – ciało strony zawierające całą widoczną treść dokumentu.</li>
+            </ul>
           </div>
           <div>
-            <div class="card">
-              <h3>Kiedy wybieramy Joomlę?</h3>
-              <ul style="padding-left: 20px;">
-                <li>Portale uczelniane, urzędowe, instytucje publiczne (BIP).</li>
-                <li>Intranety firmowe z podziałem na działy: księgowość, HR, zarząd, magazyn.</li>
-                <li>Serwisy wymagające publikacji w 4 różnych językach od pierwszego dnia.</li>
-              </ul>
-            </div>
-            <div class="callout amber" style="margin-top: 15px;">
-              <strong>Podsumowanie:</strong> Joomla ma wyższy próg wejścia niż WordPress, ale nagradza znacznie większym porządkiem architektonicznym przy złożonych projektach.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==================== SLAJD 14: GHOST CMS ==================== -->
-      <section>
-        <div class="badge rose"><i class="fa-solid fa-ghost"></i> CMS #3 (Nasza Gwiazda)</div>
-        <h2>Ghost CMS – Minimalizm, Szybkość i Node.js</h2>
-        
-        <div class="grid-2">
-          <div>
-            <p><strong>Ghost</strong> powstał na Kickstarterze z jasną misją: stworzyć platformę wyłącznie do publikacji treści, która nie powtórzy błędów ociężałego WordPressa.</p>
-            <div class="card card-accent-ghost" style="margin-top: 15px;">
-              <h3>Dlaczego deweloperzy uwielbiają Ghosta?</h3>
-              <ul style="padding-left: 20px;">
-                <li><strong>Stos technologiczny:</strong> Node.js, Express, MySQL / SQLite, silnik szablonów Handlebars.</li>
-                <li><strong>Ekstremalna szybkość:</strong> Średni czas generowania strony to ułamek sekundy (nawet 19x szybciej niż standardowy WP).</li>
-                <li><strong>Genialny edytor Markdown &amp; Kart:</strong> Czysty interfejs pisarski, wklejanie kodu z kolorowaniem składni.</li>
-                <li><strong>Wbudowane członkostwo (Memberships):</strong> Płatne subskrypcje, newslettery mailingowe z pudełka.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div>
-            <div class="card card-accent-purple">
-              <h3>Ghost jako czysty Headless CMS:</h3>
-              <p style="font-size: 0.8em;">Ghost posiada fantastyczne, doskonale udokumentowane <strong>Content API</strong>.</p>
-              <pre><code class="language-javascript">// Pobranie postów z Ghosta w czystym JS / Astro:
-import GhostContentAPI from '@tryghost/content-api';
-
-const api = new GhostContentAPI({
-  url: 'https://moj-blog.ghost.io',
-  key: '22444f78447824223ce6a7c059',
-  version: "v5.0"
-});
-
-// Pobieramy 5 najnowszych wpisów jako JSON:
-const posts = await api.posts.browse({
-  limit: 5,
-  include: 'tags,authors'
-});</code></pre>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==================== SLAJD 15: MATRYCA PORÓWNAWCZA CMS ==================== -->
-      <section>
-        <div class="badge"><i class="fa-solid fa-table-columns"></i> Decyzje architektoniczne</div>
-        <h2>Wielkie Porównanie: Który CMS wybrać do jakiego zadania?</h2>
-        
-        <table class="modern-table">
-          <thead>
-            <tr>
-              <th>Cecha / CMS</th>
-              <th style="color: var(--wp-color);">WordPress</th>
-              <th style="color: var(--joomla-color);">Joomla</th>
-              <th style="color: var(--ghost-color);">Ghost CMS</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Środowisko bazowe</strong></td>
-              <td>PHP + MySQL</td>
-              <td>PHP + MySQL / PostgreSQL</td>
-              <td>Node.js + MySQL / SQLite</td>
-            </tr>
-            <tr>
-              <td><strong>Główne przeznaczenie</strong></td>
-              <td>Wszystko (blog, sklep, portal)</td>
-              <td>Złożone serwisy, intranety, portale</td>
-              <td>Publikacja, blogi techniczne, newslettery</td>
-            </tr>
-            <tr>
-              <td><strong>Wydajność domyślna</strong></td>
-              <td>Średnia / Niska (wymaga cache)</td>
-              <td>Dobra (wbudowany cache)</td>
-              <td>Ekstremalnie wysoka (&gt; 95 w Lighthouse)</td>
-            </tr>
-            <tr>
-              <td><strong>Bezpieczeństwo</strong></td>
-              <td>Wymaga stałej uwagi i higieny</td>
-              <td>Wysokie (mała podatność na boty)</td>
-              <td>Bardzo wysokie (zwarty kod Node.js)</td>
-            </tr>
-            <tr>
-              <td><strong>Zarządzanie uprawnieniami</strong></td>
-              <td>Podstawowe (5 ról)</td>
-              <td>Bardzo zaawansowane (dowolne ACL)</td>
-              <td>Skoncentrowane na redakcji</td>
-            </tr>
-            <tr>
-              <td><strong>Gotowość na Headless</strong></td>
-              <td>Poprzez wtyczki / WP REST API</td>
-              <td>Web Services API w Joomla 4/5</td>
-              <td>Natywna, doskonałe Content API</td>
-            </tr>
-            <tr>
-              <td><strong>Ocena dydaktyczna</strong></td>
-              <td>Konieczny rynkowo ("zło konieczne")</td>
-              <td>Wartościowa lekcja inżynierii</td>
-              <td>Czysta przyjemność deweloperska</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-
-      <!-- ==================== SLAJD 16: NOWA FALA - ASTRO ==================== -->
-      <section>
-        <div class="badge rose"><i class="fa-solid fa-rocket"></i> Przyszłość webu</div>
-        <h2>Astro: Architektura Wysp (Islands) i Zero JavaScript</h2>
-        
-        <div class="grid-2">
-          <div>
-            <p>Co jeśli nie chcemy bazy danych ani ciężkiego CMS-a, ale zależy nam na komponentach i maksymalnym SEO?</p>
-            <div class="card card-accent-astro" style="margin-top: 15px;">
-              <h3>Filozofia frameworka Astro:</h3>
-              <ul style="padding-left: 20px;">
-                <li><strong>Zero JS by Default:</strong> Astro kompiluje Twój kod do czystego HTML i CSS. Przeglądarka nie pobiera zbędnych megabajtów runtime'u.</li>
-                <li><strong>Architektura Wysp (Islands Architecture):</strong> Tylko te elementy, które rzeczywiście są interaktywne (np. koszyk, karuzela), ładują odrobinę JavaScriptu.</li>
-                <li><strong>Elastyczność komponentów:</strong> Możesz pisać komponenty w React, Vue, Svelte lub czystym Astro w jednym projekcie!</li>
-                <li><strong>Doskonała współpraca z Markdown i CMS:</strong> Idealny frontend dla headless WordPressa lub Ghosta.</li>
-              </ul>
-            </div>
-          </div>
-          <div>
-            <pre><code class="language-astro">---
-// Kod wykonuje się wyłącznie na serwerze podczas budowy!
-import MyNavbar from '../components/Navbar.astro';
-import InteractiveCounter from '../components/Counter.jsx';
-const title = "Mój Nowoczesny Portal 2026";
----
-
-&lt;html lang="pl"&gt;
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl-PL"&gt;
   &lt;head&gt;
-    &lt;title&gt;{title}&lt;/title&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Tytuł mojej strony&lt;/title&gt;
   &lt;/head&gt;
   &lt;body&gt;
-    &lt;!-- 100% czysty statyczny HTML bez JS --&gt;
-    &lt;MyNavbar /&gt;
-    
-    &lt;main&gt;
-      &lt;h1&gt;{title}&lt;/h1&gt;
-      
-      &lt;!-- Tylko ten komponent ładuje JS w przeglądarce! --&gt;
-      &lt;InteractiveCounter client:visible /&gt;
-    &lt;/main&gt;
+    &lt;h1&gt;Witaj na mojej stronie!&lt;/h1&gt;
+    &lt;p&gt;To jest treść pierwszego dokumentu.&lt;/p&gt;
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
           </div>
         </div>
       </section>
 
-      <!-- ==================== SLAJD 17: BACKEND JAKO DOSTAWCA DANYCH ==================== -->
+      <!-- ==================== SLAJD 6: PODSTAWY FORMATOWANIA ==================== -->
       <section>
-        <div class="badge purple"><i class="fa-solid fa-server"></i> Krótki wgląd w backend</div>
-        <h2>Mini Backend: Django &amp; FastAPI jako API dla WWW</h2>
-        <p>W tym semestrze skupiamy się na tworzeniu stron i CMS, ale poświęcimy 1-2 wykłady na zasilanie stron własnym API.</p>
-
-        <div class="grid-2" style="margin-top: 15px;">
-          <div class="card card-accent-top">
-            <h3 style="color: var(--cyan);"><i class="fa-brands fa-python"></i> Django REST Framework</h3>
-            <ul style="padding-left: 20px;">
-              <li>Podejście "Batteries Included" (pełen zestaw baterii).</li>
-              <li>Wbudowany panel administratora do zarządzania bazą danych (modele ORM).</li>
-              <li>Świetny, gdy potrzebujesz szybko stworzyć bazę produktów, artykułów czy rezerwacji i wystawić ją dla frontendu w formacie JSON.</li>
-            </ul>
-          </div>
-
-          <div class="card card-accent-emerald">
-            <h3 style="color: var(--emerald);"><i class="fa-solid fa-bolt"></i> FastAPI (Nowoczesny standard)</h3>
-            <ul style="padding-left: 20px;">
-              <li>Asynchroniczny (ASGI), niesamowicie wydajny w Pythonie 3.12+.</li>
-              <li>Automatyczna dokumentacja interaktywna <strong>Swagger / OpenAPI</strong> pod adresem <code>/docs</code>.</li>
-              <li>Idealny do mikroserwisów, formularzy kontaktowych z wysyłką powiadomień, czy integracji AI z Twoją stroną WWW.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="callout emerald">
-          Frontend pobiera dane za pomocą natywnego <code>fetch('https://api.strona.pl/produkty')</code> i renderuje je w estetyczny interfejs.
-        </div>
-      </section>
-
-      <!-- ==================== SLAJD 18: PROGRAM LABORATORIÓW ==================== -->
-      <section>
-        <div class="badge"><i class="fa-solid fa-graduation-cap"></i> Ścieżka praktyczna</div>
-        <h2>Czego nauczymy się na laboratoriach? (26 godzin)</h2>
-        
+        <div class="badge"><i class="fa-solid fa-font"></i> Formatowanie tekstu</div>
+        <h2>Podstawy Formatowania Tekstu w HTML</h2>
         <div class="grid-2">
-          <div class="card card-accent-top">
-            <h3>Blok I: Fundamenty i Deployment (Zajęcia 1–6)</h3>
-            <ul style="padding-left: 20px; font-size: 0.82em;">
-              <li><strong>Lab 01-02:</strong> Semantyka HTML5, dostępność a11y, walidacja W3C.</li>
-              <li><strong>Lab 03-04:</strong> Zaawansowany CSS Grid &amp; Flexbox, responsywny design (RWD), micro-interactions i animacje.</li>
-              <li><strong>Lab 05-06:</strong> Narzędziownia Git, GitHub Pages oraz Cloudflare Pages z własną konfiguracją domenową.</li>
+          <div class="card">
+            <h3>Znaczniki Treści</h3>
+            <ul style="padding-left: 18px; font-size: 0.8em; line-height: 1.6;">
+              <li><code>&lt;h1&gt;</code> do <code>&lt;h6&gt;</code> – nagłówki hierarchiczne dokumentu.</li>
+              <li><code>&lt;p&gt;</code> – akapit tekstu (podstawa czytelności).</li>
+              <li><code>&lt;br&gt;</code> – wymuszenie nowego wiersza (bez zamykania).</li>
+              <li><code>&lt;strong&gt;</code> – ważne wyróżnienie pogrubione (dawniej <code>&lt;b&gt;</code>).</li>
+              <li><code>&lt;em&gt;</code> – akcent / kursywa (dawniej <code>&lt;i&gt;</code>).</li>
+              <li><code>&lt;s&gt;</code> lub <code>&lt;del&gt;</code> – tekst przekreślony.</li>
+              <li><code>&lt;sup&gt;</code> i <code>&lt;sub&gt;</code> – indeks górny (np. m<sup>2</sup>) i dolny (np. H<sub>2</sub>O).</li>
             </ul>
           </div>
-
-          <div class="card card-accent-purple">
-            <h3>Blok II: Kontenery, CMS &amp; Astro (Zajęcia 7–12)</h3>
-            <ul style="padding-left: 20px; font-size: 0.82em;">
-              <li><strong>Lab 07-08:</strong> Konteneryzacja w Podman / Docker (lokalny Nginx, baza MariaDB, bezpieczeństwo).</li>
-              <li><strong>Lab 09-10:</strong> Trójka CMS w praktyce: Wdrożenie i hardening WordPressa, konfiguracja Joomli, instalacja i praca z Ghost CMS.</li>
-              <li><strong>Lab 11-12:</strong> Wdrożenie strony w Astro, audyt Lighthouse (Core Web Vitals &gt; 90) oraz odbiór projektów.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="callout amber">
-          <strong>Organizacja sal:</strong> Pracujemy m.in. w specjalistycznej pracowni <strong>S55 110 – iMAC</strong> oraz częściowo w trybie Distance Learning (wg harmonogramu z planu).
-        </div>
-      </section>
-
-      <!-- ==================== SLAJD 19: WARUNKI ZALICZENIA ==================== -->
-      <section>
-        <div class="badge emerald"><i class="fa-solid fa-award"></i> Zaliczenie przedmiotu</div>
-        <h2>Warunki Zaliczenia: Wybierz Swoją Ścieżkę</h2>
-        
-        <div class="grid-2">
-          <div class="card card-accent-top">
-            <h3 style="color: var(--cyan);"><i class="fa-solid fa-star"></i> Ścieżka A: Projekt Zaliczeniowy (1 duży)</h3>
-            <p>Wybierasz jeden z <strong>10 przygotowanych tematów projektowych</strong> (lub proponujesz własny po akceptacji).</p>
-            <ul style="padding-left: 20px; font-size: 0.82em;">
-              <li>Kompletny, dopracowany portal łączący poznane technologie.</li>
-              <li>Wdrożony publicznie (GitHub/Cloudflare Pages lub własny serwer/kontener).</li>
-              <li>Responsywny, przetestowany w Lighthouse, z kodem w repozytorium git.</li>
-              <li><strong>Dla kogo:</strong> Dla osób chcących wzbogacić swoje portfolio zawodowe (GitHub).</li>
-            </ul>
-          </div>
-
-          <div class="card card-accent-purple">
-            <h3 style="color: var(--purple);"><i class="fa-solid fa-list-check"></i> Ścieżka B: Zadania Modułowe (5 mniejszych)</h3>
-            <p>Zamiast jednego dużego systemu oddajesz <strong>5 konkretnych zadań laboratoryjnych</strong> z bloków tematycznych:</p>
-            <ul style="padding-left: 20px; font-size: 0.82em;">
-              <li>1. Semantyczny komponent HTML5 + CSS Grid.</li>
-              <li>2. Strona opublikowana na Cloudflare Pages przez Git.</li>
-              <li>3. Wdrożenie i zabezpieczenie instancji Ghost CMS lub WordPress w kontenerze.</li>
-              <li>4. Strona statyczna z blogiem w Astro.</li>
-              <li>5. Podpięcie prostego API (fetch) do interfejsu.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="card card-accent-emerald" style="margin-top: 15px;">
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            <div>
-              <h3 style="margin: 0; color: #fff;">Zaliczenie Wykładu (Wymóg formalny)</h3>
-              <p style="margin: 4px 0; font-size: 0.82em;">Krótki test wiedzy online na platformie pod koniec semestru (pytania jednokrotnego wyboru oparte na slajdach).</p>
+          <div>
+            <div class="card card-accent-purple">
+              <h3>Kolory w Kodzie: Nazwy i System HEX</h3>
+              <p style="font-size: 0.78em;">Kolory definiujemy dziś w CSS, ale warto znać zapis:</p>
+              <table class="modern-table">
+                <tr><th>Nazwa</th><th>HEX</th><th>Podgląd</th></tr>
+                <tr><td><code>RED</code></td><td><code>#FF0000</code></td><td style="background:#ff0000; width:40px;"></td></tr>
+                <tr><td><code>GREEN</code></td><td><code>#008000</code></td><td style="background:#008000; width:40px;"></td></tr>
+                <tr><td><code>BLUE</code></td><td><code>#0000FF</code></td><td style="background:#0000FF; width:40px;"></td></tr>
+                <tr><td><code>DARK SLATE</code></td><td><code>#0F172A</code></td><td style="background:#0f172a; width:40px;"></td></tr>
+              </table>
             </div>
-            <div class="badge emerald" style="font-size: 0.7em;">Test Online</div>
           </div>
         </div>
       </section>
 
-      <!-- ==================== SLAJD 20: 10 PROJEKTÓW ==================== -->
+      <!-- ==================== SLAJD 7: OBRAZY, LISTY, TABELE ==================== -->
       <section>
-        <div class="badge"><i class="fa-solid fa-folder-open"></i> Ścieżka A: Do wyboru</div>
-        <h2>Przykładowe Tematy z Listy 10 Projektów</h2>
-        
-        <div class="grid-2">
+        <div class="badge"><i class="fa-solid fa-images"></i> Media i struktury</div>
+        <h2>Obrazy, Listy i Tabele w Praktyce</h2>
+        <div class="grid-3">
           <div class="card">
-            <h3 style="color: var(--cyan);">01. Nowoczesny Magazyn Technologiczny na Ghost CMS</h3>
-            <p>Wdrożenie Ghosta na kontenerze, customizacja motywu, system subskrypcji dla czytelników i audyt wydajności.</p>
-          </div>
-          <div class="card">
-            <h3 style="color: var(--purple);">02. Headless WordPress z Frontendem w Astro</h3>
-            <p>WordPress jako czyste repozytorium treści (REST API), frontend w technologii Astro z generowaniem statycznym (SSG).</p>
-          </div>
-          <div class="card">
-            <h3 style="color: var(--emerald);">03. Wielojęzyczny Portal Instytucjonalny na Joomla 5</h3>
-            <p>Portal z rozbudowanym systemem ról (pracownik, student, redaktor), wielojęzycznością i formularzami zgłoszeniowymi.</p>
-          </div>
-          <div class="card">
-            <h3 style="color: var(--amber);">04. Portfolio Inżynierskie Jamstack na Cloudflare Pages</h3>
-            <p>Autorska strona portfolio w HTML5/CSS3/Vite/Astro z interaktywnymi komponentami, 100/100 w Lighthouse i CI/CD.</p>
-          </div>
-        </div>
-        <div style="text-align: center; margin-top: 15px;">
-          <p style="font-size: 0.85em; color: var(--text-muted);">
-            Pełna specyfikacja wszystkich 10 projektów znajduje się w pliku <code style="color: var(--cyan);">studenci/projekty_zaliczeniowe.md</code>!
-          </p>
-        </div>
-      </section>
-
-      <!-- ==================== SLAJD 21: KONTAKT I KONSULTACJE ==================== -->
-      <section>
-        <div class="badge emerald"><i class="fa-solid fa-address-book"></i> Komunikacja</div>
-        <h2>Kontakt, Repozytorium i Zapisy na Konsultacje</h2>
-        
-        <div class="grid-2">
-          <div class="card card-accent-top">
-            <h3>Oficjalne kanały kontaktu:</h3>
-            <ul style="padding-left: 20px; font-size: 0.82em;">
-              <li><strong>E-mail:</strong> <code style="color: var(--cyan);">przemyslaw.zarnecki@dsw.edu.pl</code> (sprawy oficjalne)</li>
-              <li><strong>MS Teams:</strong> Szybkie pytania organizacyjne</li>
-              <li><strong>Repozytorium z kodem:</strong> <a href="https://dev.zarnecki.org/pz-teacher" target="_blank" style="color: var(--cyan); text-decoration: underline;">dev.zarnecki.org/pz-teacher</a></li>
-              <li><strong>Chmura / Rozmowy:</strong> <a href="https://cloud.zarnecki.org/index.php/call/avozdnxm" target="_blank" style="color: var(--cyan);">cloud.zarnecki.org (pokój)</a></li>
-              <li><strong>Mattermost:</strong> mm.zarnecki.org (komunikator deweloperski)</li>
-            </ul>
+            <h3><i class="fa-regular fa-image"></i> Obrazy (&lt;img&gt;)</h3>
+            <p>Znacznik samozamykający z kluczowymi atrybutami:</p>
+            <pre><code class="language-html">&lt;img src="foto.webp" 
+     alt="Opis zdjęcia" 
+     width="600" 
+     height="400"&gt;</code></pre>
+            <p style="font-size: 0.75em; color: var(--text-muted);">
+              Atrybut <code>alt</code> jest bezwzględnie wymagany ze względów dostępności (WCAG) i SEO!
+            </p>
           </div>
 
-          <div class="card card-accent-emerald">
-            <h3 style="color: var(--emerald);"><i class="fa-solid fa-calendar-check"></i> Rezerwacja Terminu Konsultacji:</h3>
-            <p style="font-size: 0.82em;">Od tego semestru zapisy na konsultacje odbywają się przez bezpośredni kalendarz online:</p>
-            <div style="background: rgba(0,0,0,0.3); padding: 14px; border-radius: 8px; border: 1px dashed var(--emerald); margin: 12px 0;">
-              <a href="https://chmura.zarnecki.org/apps/calendar/appointment/Pk86wK62KEGr" target="_blank" style="color: var(--emerald); font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 0.78em; word-break: break-all;">
-                chmura.zarnecki.org/apps/calendar/appointment/Pk86wK62KEGr
-              </a>
-            </div>
-            <p style="font-size: 0.76em; color: var(--text-muted);">
-              Godziny konsultacji mogą się elastycznie zmieniać w zależności od tygodnia – w kalendarzu zawsze widzicie aktualne wolne sloty.
+          <div class="card">
+            <h3><i class="fa-solid fa-list-ol"></i> Listy (&lt;ul&gt; i &lt;ol&gt;)</h3>
+            <p>Wypunktowane (unordered) i numerowane (ordered):</p>
+            <pre><code class="language-html">&lt;ul&gt;
+  &lt;li&gt;WordPress&lt;/li&gt;
+  &lt;li&gt;Joomla&lt;/li&gt;
+  &lt;li&gt;Ghost CMS&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+            <p style="font-size: 0.75em; color: var(--text-muted);">
+              Menu nawigacyjne na stronach budujemy niemal zawsze na bazie listy <code>&lt;ul&gt;</code>.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3><i class="fa-solid fa-table"></i> Tabele (&lt;table&gt;)</h3>
+            <p>Służą wyłącznie do danych zestawieniowych:</p>
+            <pre><code class="language-html">&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;CMS&lt;/th&gt;&lt;th&gt;Silnik&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Ghost&lt;/td&gt;&lt;td&gt;Node.js&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+            <p style="font-size: 0.75em; color: var(--rose);">
+              ⚠️ Nigdy nie używamy tabel do pozycjonowania layoutu strony!
             </p>
           </div>
         </div>
       </section>
 
-      <!-- ==================== SLAJD 22: PODSUMOWANIE I Q&A ==================== -->
+      <!-- ==================== SLAJD 8: ODNOŚNIKI ==================== -->
+      <section>
+        <div class="badge"><i class="fa-solid fa-link"></i> Hipertekst</div>
+        <h2>Odnośniki (&lt;a href="..."&gt;) – Istota Sieci WWW</h2>
+        <div class="grid-2">
+          <div class="card card-accent-cyan">
+            <h3>Rodzaje Linków</h3>
+            <ul style="padding-left: 18px; font-size: 0.8em; line-height: 1.6;">
+              <li><strong>Do innej strony:</strong><br>
+                <code>&lt;a href="https://ideis.pl"&gt;Portal Uczelni&lt;/a&gt;</code></li>
+              <li><strong>Otwieranie w nowej karcie:</strong><br>
+                <code>&lt;a href="https://..." target="_blank" rel="noopener"&gt;Nowa karta&lt;/a&gt;</code></li>
+              <li><strong>Pobieranie pliku (ZIP/PDF):</strong><br>
+                <code>&lt;a href="materialy.zip" download&gt;Pobierz archiwum&lt;/a&gt;</code></li>
+              <li><strong>Wysyłka e-mail (mailto):</strong><br>
+                <code>&lt;a href="mailto:nauczanie@pm.me"&gt;Napisz do mnie&lt;/a&gt;</code></li>
+              <li><strong>Kotwica na tej samej stronie:</strong><br>
+                <code>&lt;a href="#kontakt"&gt;Skocz do kontaktu&lt;/a&gt;</code></li>
+            </ul>
+          </div>
+          <div class="card card-accent-emerald">
+            <h3>Dobre Praktyki Bezpieczeństwa Linków</h3>
+            <div class="callout emerald">
+              Zawsze przy użyciu <code>target="_blank"</code> dopisujemy <code>rel="noopener noreferrer"</code> – zapobiega to atakowi typu tabnabbing (przejęciu okna nadrzędnego przez otwartą kartę).
+            </div>
+            <p style="font-size: 0.8em; margin-top: 10px;">
+              Treść odnośnika musi być zrozumiała bez czytania otoczenia. Unikaj tekstów typu "kliknij tutaj" – zamiast tego użyj: "Pobierz sylabus przedmiotu w formacie PDF".
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLAJD 9: DEFINICJA CSS ==================== -->
+      <section>
+        <div class="badge purple"><i class="fa-brands fa-css3-alt"></i> Fundament #2</div>
+        <h2>CSS (Cascading Style Sheets) – Oddzielenie Wyglądu od Treści</h2>
+        <div class="grid-2">
+          <div>
+            <p><strong>Kaskadowe Arkusze Stylów</strong> odpowiadają za całą warstwę wizualną: kolory, typografię, odstępy, układ i animacje.</p>
+            <div class="card card-accent-cyan" style="margin-top: 10px;">
+              <h3>Trzy Filary Kaskadowości:</h3>
+              <ol style="padding-left: 18px; font-size: 0.8em; line-height: 1.5;">
+                <li><strong>Hierarchia źródeł:</strong> Style inline &gt; Styl w tagu <code>&lt;style&gt;</code> &gt; Zewnętrzny plik <code>.css</code>.</li>
+                <li><strong>Specyficzność selektora:</strong> ID (100) &gt; Klasa (10) &gt; Element (1).</li>
+                <li><strong>Kolejność zapisu:</strong> W razie równej wagi wygrywa reguła zdefiniowana niżej w kodzie.</li>
+              </ol>
+            </div>
+          </div>
+          <div>
+            <pre><code class="language-css">/* Anatomia reguły CSS */
+selektor {
+  wlasciwosc: wartosc;
+}
+
+/* Przykład */
+h1 {
+  color: #38bdf8;
+  font-size: 2.5rem;
+  letter-spacing: -0.02em;
+}
+
+.karta-produktu {
+  background-color: #0f172a;
+  border-radius: 12px;
+  padding: 20px;
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLAJD 10: SELEKTORY CSS ==================== -->
+      <section>
+        <div class="badge"><i class="fa-solid fa-filter"></i> Precyzja stylowania</div>
+        <h2>Przegląd Najważniejszych Selektorów CSS</h2>
+        <table class="modern-table">
+          <thead>
+            <tr><th>Typ Selektora</th><th>Zapis w CSS</th><th>Co oznacza?</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Elementu</strong></td>
+              <td><code>h1 { color: #38bdf8; }</code></td>
+              <td>Wszystkie nagłówki h1 na całej stronie</td>
+            </tr>
+            <tr>
+              <td><strong>Klasy</strong></td>
+              <td><code>.btn-primary { background: green; }</code></td>
+              <td>Każdy element z atrybutem <code>class="btn-primary"</code></td>
+            </tr>
+            <tr>
+              <td><strong>Identyfikatora</strong></td>
+              <td><code>#menu-glowne { position: fixed; }</code></td>
+              <td>Pojedynczy, unikalny element z <code>id="menu-glowne"</code></td>
+            </tr>
+            <tr>
+              <td><strong>Potomka</strong></td>
+              <td><code>ul li { list-style: circle; }</code></td>
+              <td>Wszystkie elementy <code>&lt;li&gt;</code> znajdujące się wewnątrz <code>&lt;ul&gt;</code></td>
+            </tr>
+            <tr>
+              <td><strong>Atrybutu</strong></td>
+              <td><code>a[target="_blank"] { color: purple; }</code></td>
+              <td>Odnośniki otwierające się w nowym oknie</td>
+            </tr>
+            <tr>
+              <td><strong>Pseudoklasy :hover</strong></td>
+              <td><code>.btn:hover { transform: scale(1.05); }</code></td>
+              <td>Stan elementu w momencie najechania kursorem myszy</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ==================== SLAJD 11: POZYCJONOWANIE ==================== -->
+      <section>
+        <div class="badge cyan"><i class="fa-solid fa-table-cells-large"></i> Układ strony</div>
+        <h2>Pozycjonowanie Elementów: Flexbox vs CSS Grid</h2>
+        <div class="grid-2">
+          <div class="card card-accent-cyan">
+            <h3><i class="fa-solid fa-arrows-left-right"></i> Flexbox (Układ 1D)</h3>
+            <p>Idealny do pasków nawigacji, wyrównywania elementów w wierszu lub kolumnie:</p>
+            <pre><code class="language-css">.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}</code></pre>
+            <p style="font-size: 0.75em; color: var(--text-muted);">
+              Elementy elastycznie kurczą się i rozciągają wzdłuż jednej osi głównej.
+            </p>
+          </div>
+
+          <div class="card card-accent-purple">
+            <h3><i class="fa-solid fa-border-all"></i> CSS Grid (Układ 2D)</h3>
+            <p>Idealny do struktury całych podstron i responsywnych siatek kart:</p>
+            <pre><code class="language-css">.grid-container {
+  display: grid;
+  grid-template-columns: 
+    repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}</code></pre>
+            <p style="font-size: 0.75em; color: var(--text-muted);">
+              Siatka automatycznie dostosowuje liczbę kolumn do szerokości ekranu bez media queries!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLAJD 12: ANIMACJE CSS ==================== -->
+      <section>
+        <div class="badge emerald"><i class="fa-solid fa-wand-magic-sparkles"></i> Dynamika wizualna</div>
+        <h2>Efekty Przejścia i Płynne Animacje w CSS</h2>
+        <div class="grid-2">
+          <div>
+            <p>Współczesna strona internetowa reaguje na akcje użytkownika mikrointerakcjami. Robimy to czystym CSS bez konieczności używania JavaScriptu!</p>
+            <div class="card card-accent-emerald" style="margin-top: 10px;">
+              <h3>Złota zasada animacji (GPU):</h3>
+              <p style="font-size: 0.8em;">
+                Animujemy wyłącznie <code>transform</code> oraz <code>opacity</code>. Przeglądarka przekazuje te obliczenia karcie graficznej, gwarantując stałe 60 FPS na smartfonach.
+              </p>
+            </div>
+          </div>
+          <div>
+            <pre><code class="language-css">/* Płynny przycisk z efektem uniesienia */
+.karta-artykulu {
+  background: #1e293b;
+  border-radius: 8px;
+  /* Kluczowa reguła płynności */
+  transition: transform 0.3s ease, 
+              box-shadow 0.3s ease;
+}
+
+/* Reakcja na najechanie kursorerm */
+.karta-artykulu:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLAJD 13: PUNKT ZWROTNY - DLACZEGO CMS ==================== -->
       <section class="center-slide">
-        <div class="badge emerald"><i class="fa-solid fa-flag-checkered"></i> Podsumowanie</div>
-        <h2 style="font-size: 2.4em !important; margin-bottom: 10px;">Dziękuję za uwagę!</h2>
-        <p style="font-size: 1.1em; color: var(--text-muted); max-width: 700px; margin-bottom: 25px;">
-          Zapraszam do dyskusji, zadawania pytań i przygotowania środowiska na pierwsze zajęcia laboratoryjne.
+        <div class="badge rose"><i class="fa-solid fa-lightbulb"></i> Punkt Zwrotny Wykładu</div>
+        <h2 style="font-size: 2.2em !important;">A Jakby Podejść do Tematu Całkowicie Inaczej?</h2>
+        <p style="font-size: 1.1em; color: var(--text-muted); max-width: 820px; margin-bottom: 25px;">
+          Napisanie strony w HTML i CSS to świetna lekcja inżynierii, ale wyobraźmy sobie klienta, który codziennie publikuje 5 wpisów blogowych, zmienia ceny w cenniku i dodaje zdjęcia...
         </p>
 
-        <div class="card" style="display: inline-block; text-align: left; padding: 20px 30px; margin-bottom: 25px; border-color: var(--border-accent);">
-          <div style="font-weight: 700; color: #fff; margin-bottom: 6px;"><i class="fa-solid fa-terminal" style="color: var(--cyan);"></i> Zadanie na pierwsze laboratoria:</div>
-          <div style="font-size: 0.85em; color: #cbd5e1;">1. Zainstaluj Visual Studio Code (lub Zed) oraz Git.</div>
-          <div style="font-size: 0.85em; color: #cbd5e1;">2. Załóż darmowe konto na GitHub (jeśli jeszcze nie posiadasz).</div>
-          <div style="font-size: 0.85em; color: #cbd5e1;">3. Przejrzyj repozytorium: <code style="color: var(--cyan);">https://dev.zarnecki.org/pz-teacher</code></div>
+        <div class="grid-2" style="text-align: left; max-width: 900px; width: 100%;">
+          <div class="card" style="border-left: 4px solid var(--rose);">
+            <h3 style="color: var(--rose);">Czysty Kod (Sam HTML &amp; CSS):</h3>
+            <ul style="padding-left: 18px; font-size: 0.8em;">
+              <li>Każda literówka wymaga edycji pliku i ponownego wdrożenia.</li>
+              <li>Klient musi znać składnię tagów HTML i bać się, że "zepsuje layout".</li>
+              <li>Brak bazy danych, wyszukiwarki, ról użytkowników.</li>
+            </ul>
+          </div>
+          <div class="card" style="border-left: 4px solid var(--emerald);">
+            <h3 style="color: var(--emerald);">System CMS (Content Management):</h3>
+            <ul style="padding-left: 18px; font-size: 0.8em;">
+              <li>Edycja w przeglądarce w intuicyjnym edytorze (Wysiwyg / Markdown).</li>
+              <li>Pełna separacja treści od szaty graficznej.</li>
+              <li>Klient zarządza mediami, my dbamy o infrastrukturę.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLAJD 14: DEFINICJA I FUNKCJE CMS ==================== -->
+      <section>
+        <div class="badge"><i class="fa-solid fa-cubes"></i> Zarządzanie treścią</div>
+        <h2>Co to Jest CMS i Jakie Funkcje Zapewnia?</h2>
+        <div class="grid-2">
+          <div>
+            <p><strong>CMS (Content Management System)</strong> to aplikacja internetowa umożliwiająca tworzenie, modyfikację i organizację treści cyfrowych bez konieczności bezpośredniej edycji kodu źródłowego witryny.</p>
+            <div class="card card-accent-cyan" style="margin-top: 10px;">
+              <h3>Kluczowe Zadania Systemu CMS:</h3>
+              <ul style="padding-left: 18px; font-size: 0.8em; line-height: 1.55;">
+                <li>Proste dodawanie artykułów, stron i produktów.</li>
+                <li>Zarządzanie biblioteką mediów (zdjęcia, filmy, dokumenty).</li>
+                <li>System ról i uprawnień (Autor, Redaktor, Administrator).</li>
+                <li>Silnik szablonów decydujący o wyglądzie strony.</li>
+                <li>Rozszerzalność za pomocą wtyczek / modułów / API.</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <div class="card card-accent-purple">
+              <h3>Open Source vs Zamknięty SaaS</h3>
+              <p><strong>Open Source (Nasz wybór):</strong></p>
+              <ul style="padding-left: 18px; font-size: 0.78em;">
+                <li>Pełny dostęp do kodu źródłowego, brak opłat licencyjnych.</li>
+                <li>Możliwość instalacji na własnym serwerze (Linux / kontener).</li>
+                <li>WordPress, Joomla, Ghost CMS.</li>
+              </ul>
+              <p style="margin-top: 10px;"><strong>Zamknięty SaaS (Wix, Squarespace, Shopify):</strong></p>
+              <ul style="padding-left: 18px; font-size: 0.78em;">
+                <li>Szybki start, ale wysokie abonamenty i uzależnienie od platformy (vendor lock-in).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLAJD 15: WIELKA TRÓJKA ==================== -->
+      <section class="center-slide">
+        <div class="badge emerald"><i class="fa-solid fa-trophy"></i> Filary semestru</div>
+        <h2 style="font-size: 2.1em !important;">Wielka Trójka CMS w Naszym Programie</h2>
+        <p style="color: var(--text-muted); max-width: 820px; margin-bottom: 25px;">
+          W tym semestrze przetestujemy trzy zupełnie różne filozofie podejścia do zarządzania treścią.
+        </p>
+
+        <div class="grid-3" style="text-align: left; width: 100%;">
+          <div class="card card-accent-wp">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span class="badge" style="color:#38bdf8; border-color:#21759b;">Rynkowy Gigant</span>
+              <i class="fa-brands fa-wordpress" style="font-size:1.8em; color:var(--wp-color);"></i>
+            </div>
+            <h3 style="margin-top:8px;">WordPress</h3>
+            <p><strong>~40% globalnego internetu.</strong> Najpopularniejszy, olbrzymi ekosystem. Dowiemy się dlaczego bywa krytykowany ("ble") i jak używać go profesjonalnie (Gutenberg, Headless REST API).</p>
+          </div>
+
+          <div class="card card-accent-joomla">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span class="badge" style="color:#fb923c; border-color:#f97316;">Struktura &amp; ACL</span>
+              <i class="fa-brands fa-joomla" style="font-size:1.8em; color:var(--joomla-color);"></i>
+            </div>
+            <h3 style="margin-top:8px;">Joomla 5</h3>
+            <p><strong>Potęga ról i uprawnień.</strong> Wielojęzyczność z pudełka, inżynierski model MVC, wielopoziomowe uprawnienia ACL. Niezastąpiona w portalach publicznych i intranetach.</p>
+          </div>
+
+          <div class="card card-accent-ghost">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span class="badge" style="color:#fb7185; border-color:#f43f5e;">Nowoczesność</span>
+              <i class="fa-solid fa-ghost" style="font-size:1.8em; color:var(--ghost-color);"></i>
+            </div>
+            <h3 style="margin-top:8px;">Ghost CMS</h3>
+            <p><strong>Nowa era: Node.js &amp; Markdown.</strong> Ekstremalna szybkość, czyste Content API, wbudowane subskrypcje dla czytelników i genialny edytor treści. Ulubieniec deweloperów.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLAJD 16: WORDPRESS GŁĘBIEJ ==================== -->
+      <section>
+        <div class="badge" style="color:#38bdf8; border-color:#21759b;"><i class="fa-brands fa-wordpress"></i> CMS #1</div>
+        <h2>WordPress – Dlaczego "Ble", a Dlaczego Musimy Go Znać?</h2>
+        <div class="grid-2">
+          <div class="card" style="border-left: 4px solid var(--rose);">
+            <h3 style="color: var(--rose);">Ciemna strona ("ble"):</h3>
+            <ul style="padding-left: 18px; font-size: 0.8em; line-height: 1.55;">
+              <li><strong>Piekło wtyczek (Plugin Hell):</strong> Instalowanie 40 wtyczek spowalnia stronę i generuje konflikty.</li>
+              <li><strong>Główny cel botów:</strong> 95% włamań wynika z nieaktualnych, dziurawych wtyczek firm trzecich.</li>
+              <li><strong>Ociężałe page-buildery:</strong> Narzędzia wizualne generujące gigantyczny, nieoptymalny kod HTML.</li>
+            </ul>
+          </div>
+          <div class="card" style="border-left: 4px solid var(--emerald);">
+            <h3 style="color: var(--emerald);">Podejście inżynierskie (2026/27):</h3>
+            <ul style="padding-left: 18px; font-size: 0.8em; line-height: 1.55;">
+              <li><strong>Edytor Gutenberg &amp; FSE:</strong> Korzystanie z natywnych bloków bez zewnętrznych kombajnów.</li>
+              <li><strong>Headless WordPress:</strong> WordPress jako bezpieczny panel redakcyjny wystawiający dane przez <strong>WP REST API</strong>.</li>
+              <li><strong>Hardening:</strong> Wyłączenie XML-RPC, ochrona panelu i stałe aktualizacje.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLAJD 17: JOOMLA GŁĘBIEJ ==================== -->
+      <section>
+        <div class="badge" style="color:#fb923c; border-color:#f97316;"><i class="fa-brands fa-joomla"></i> CMS #2</div>
+        <h2>Joomla 5 – Inżynierski Porządek i Architektura Uprawnień</h2>
+        <div class="grid-2">
+          <div>
+            <p>Joomla to platforma wybierana tam, gdzie WordPress okazuje się zbyt chaotyczny pod kątem praw dostępu.</p>
+            <div class="card card-accent-joomla" style="margin-top: 10px;">
+              <h3>Mocne strony architektury Joomli:</h3>
+              <ul style="padding-left: 18px; font-size: 0.8em; line-height: 1.55;">
+                <li><strong>Zaawansowane ACL:</strong> Dowolnie zagnieżdżane grupy użytkowników z precyzyjnymi prawami do podglądu, edycji i publikacji.</li>
+                <li><strong>Natywna wielojęzyczność:</strong> Obsługa wielu wersji językowych bez konieczności płatnych wtyczek.</li>
+                <li><strong>Wzorzec MVC:</strong> Czysty podział na Model, Widok i Kontroler w komponentach.</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <div class="card">
+              <h3>Gdzie spotkasz Joomlę?</h3>
+              <ul style="padding-left: 18px; font-size: 0.8em; line-height: 1.55;">
+                <li>Uczelnie wyższe i instytucje edukacyjne.</li>
+                <li>Serwisy samorządowe i administracji publicznej (BIP).</li>
+                <li>Intranety korporacyjne z podziałem na działy firmy.</li>
+              </ul>
+            </div>
+            <div class="callout amber" style="margin-top: 10px;">
+              Joomla wymaga więcej nauki na starcie, ale zapewnia znakomitą strukturę danych.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLAJD 18: GHOST CMS ==================== -->
+      <section>
+        <div class="badge rose"><i class="fa-solid fa-ghost"></i> CMS #3 (Nowość)</div>
+        <h2>Ghost CMS – Minimalizm, Node.js i Czysty Markdown</h2>
+        <div class="grid-2">
+          <div>
+            <p>Ghost powstał jako bezpośrednia odpowiedź na przekombinowanie WordPressa. Jego celem jest jedna rzecz: <strong>doskonała publikacja treści</strong>.</p>
+            <div class="card card-accent-ghost" style="margin-top: 10px;">
+              <h3>Dlaczego deweloperzy uwielbiają Ghosta?</h3>
+              <ul style="padding-left: 18px; font-size: 0.8em; line-height: 1.55;">
+                <li><strong>Architektura Node.js:</strong> Błyskawiczne czasy odpowiedzi i małe zużycie zasobów.</li>
+                <li><strong>Edytor Markdown &amp; Kart:</strong> Pisanie treści z formatowaniem kodu bez rozpraszaczy.</li>
+                <li><strong>Natywne Content API:</strong> Ghost działa idealnie jako Headless CMS dla każdego frontendu.</li>
+                <li><strong>Newsletter &amp; Memberships:</strong> Wbudowany system subskrypcji czytelników z pudełka.</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <pre><code class="language-javascript">// Pobranie danych z Ghost Content API:
+import GhostContentAPI from '@tryghost/content-api';
+
+const api = new GhostContentAPI({
+  url: 'http://localhost:2368',
+  key: '22444f78447824223ce6a7c059',
+  version: "v5.0"
+});
+
+// Pobieramy wpisy jako czysty JSON:
+const posts = await api.posts.browse({ limit: 5 });</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLAJD 19: PORÓWNANIE CMS ==================== -->
+      <section>
+        <div class="badge"><i class="fa-solid fa-table-columns"></i> Podsumowanie CMS</div>
+        <h2>Zestawienie Porównawcze Trzech CMS</h2>
+        <table class="modern-table">
+          <thead>
+            <tr>
+              <th>Cecha</th>
+              <th style="color: var(--wp-color);">WordPress</th>
+              <th style="color: var(--joomla-color);">Joomla 5</th>
+              <th style="color: var(--ghost-color);">Ghost CMS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Środowisko</strong></td>
+              <td>PHP + MySQL</td>
+              <td>PHP + MySQL / PostgreSQL</td>
+              <td>Node.js + SQLite / MySQL</td>
+            </tr>
+            <tr>
+              <td><strong>Główny Use-case</strong></td>
+              <td>Wszystko (blog, sklep, wizytówka)</td>
+              <td>Portale złożone, instytucje, intranety</td>
+              <td>Blogi technologiczne, publishing, newsletter</td>
+            </tr>
+            <tr>
+              <td><strong>Wydajność</strong></td>
+              <td>Średnia (wymaga optymalizacji)</td>
+              <td>Wysoka (wbudowany cache)</td>
+              <td>Ekstremalna (&gt; 95 w Lighthouse)</td>
+            </tr>
+            <tr>
+              <td><strong>Model ról</strong></td>
+              <td>5 sztywnych ról</td>
+              <td>Zaawansowane, hierarchiczne ACL</td>
+              <td>Skupione na redakcji i czytelnikach</td>
+            </tr>
+            <tr>
+              <td><strong>Headless API</strong></td>
+              <td>WP REST API / GraphQL</td>
+              <td>Web Services API</td>
+              <td>Natywne, genialne Content API</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ==================== SLAJD 20: FRAMEWORKI I ASTRO ==================== -->
+      <section>
+        <div class="badge"><i class="fa-solid fa-rocket"></i> Most do przyszłości</div>
+        <h2>Wprowadzenie do Frameworków i Astro</h2>
+        <div class="grid-2">
+          <div class="card card-accent-cyan">
+            <h3>Świat Frameworków JS (React itp.)</h3>
+            <p style="font-size: 0.8em;">React dominuje w ilości pobrań plików frontendowych. Budujemy aplikacje z gotowych klocków komponentowych. Ale czy każda strona potrzebuje ciężkiego runtime'u JS?</p>
+          </div>
+          <div class="card card-accent-purple">
+            <h3>Astro: Architektura Wysp (Islands)</h3>
+            <p style="font-size: 0.8em;">Astro kompiluje kod do czystego HTML i CSS (Zero JS by default). Skrypt JavaScript jest ładowany tylko dla tych elementów, które rzeczywiście są interaktywne.</p>
+          </div>
+        </div>
+        <div class="callout emerald" style="margin-top: 10px;">
+          W tym semestrze połączymy świat CMS ze światem nowoczesnych frameworków – np. pobierając treści z Ghosta lub WordPressa do ultraszybkiego serwisu w Astro!
+        </div>
+      </section>
+
+      <!-- ==================== SLAJD 21: WARUNKI ZALICZENIA ==================== -->
+      <section>
+        <div class="badge emerald"><i class="fa-solid fa-award"></i> Zaliczenie</div>
+        <h2>Warunki Zaliczenia Przedmiotu</h2>
+        <div class="grid-2">
+          <div class="card card-accent-cyan">
+            <h3 style="color: var(--cyan);"><i class="fa-solid fa-star"></i> Ścieżka A: 1 Duży Projekt</h3>
+            <p style="font-size: 0.8em;">Wybierasz jeden temat z oficjalnej listy <strong>10 Projektów Zaliczeniowych</strong> (np. magazyn na Ghost CMS, Headless WP + Astro, portal na Joomla). Gotowy produkt wdrożony online + repozytorium git.</p>
+          </div>
+          <div class="card card-accent-purple">
+            <h3 style="color: var(--purple);"><i class="fa-solid fa-list-check"></i> Ścieżka B: 5 Zadań Labowych</h3>
+            <p style="font-size: 0.8em;">Oddajesz systematycznie 5 mniejszych zadań bezpośrednio z ćwiczeń (komponent HTML5/CSS Grid, deployment na Pages, kontener CMS, publikacja w Ghost/Astro, integracja fetch API).</p>
+          </div>
+        </div>
+        <div class="card card-accent-emerald" style="margin-top: 10px;">
+          <h3 style="margin: 0; color: #fff;">Zaliczenie Wykładu (Wymóg Formalny)</h3>
+          <p style="margin: 4px 0; font-size: 0.8em;">Krótki test wiedzy online jednokrotnego wyboru na platformie uczelnianej pod koniec semestru (oparty na materiałach ze slajdów).</p>
+        </div>
+      </section>
+
+      <!-- ==================== SLAJD 22: KONTAKT I KONSULTACJE ==================== -->
+      <section class="center-slide">
+        <div class="badge emerald"><i class="fa-solid fa-address-book"></i> Komunikacja</div>
+        <h2>Kontakt i Rezerwacja Konsultacji</h2>
+        
+        <div class="grid-2" style="max-width: 950px; text-align: left; width: 100%;">
+          <div class="card card-accent-cyan">
+            <h3>Kanały Oficjalne i Szybkie:</h3>
+            <ul style="padding-left: 18px; font-size: 0.8em; line-height: 1.6;">
+              <li><strong>E-mail uczelniany:</strong> <code>przemyslaw.zarnecki@ideis.pl</code></li>
+              <li><strong>Dodatkowy mail:</strong> <code>nauczanie@pm.me</code></li>
+              <li><strong>MS Teams:</strong> Bieżące pytania w trakcie semestru</li>
+              <li><strong>Element (Matrix):</strong> <code>@pzarnecki:matrix.org</code></li>
+              <li><strong>Telegram:</strong> <code>@przemekz</code></li>
+              <li><strong>Threema:</strong> <code>38838EPX</code></li>
+              <li><strong>Discord awaryjny:</strong> <code>p.zarnecki@favor.info.pl</code></li>
+            </ul>
+          </div>
+
+          <div class="card card-accent-emerald">
+            <h3 style="color: var(--emerald);"><i class="fa-regular fa-calendar-check"></i> Kalendarz Konsultacji:</h3>
+            <p style="font-size: 0.8em;">Bezpośrednia rezerwacja terminu spotkania online lub stacjonarnego:</p>
+            <div style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 6px; border: 1px dashed var(--emerald); margin: 8px 0; word-break: break-all; font-size: 0.75em; font-family: 'JetBrains Mono', monospace; color: var(--emerald);">
+              chmura.zarnecki.org/apps/calendar/appointment/Pk86wK62KEGr
+            </div>
+            <p style="font-size: 0.75em; color: var(--text-muted);">
+              Terminy mogą się elastycznie zmieniać w poszczególnych tygodniach – link zawsze pokazuje aktualne sloty.
+            </p>
+            <p style="font-size: 0.8em; margin-top: 10px;">
+              <strong>Repozytorium przykładów:</strong><br>
+              <code style="color: var(--cyan);">dev.zarnecki.org/pz-teacher</code>
+            </p>
+          </div>
         </div>
 
-        <div>
-          <a href="index.html" class="ctrl-btn" style="font-size: 0.9em; padding: 10px 20px;">
+        <div style="margin-top: 18px;">
+          <a href="index.html" class="ctrl-btn" style="font-size: 0.85em; padding: 8px 16px;">
             <i class="fa-solid fa-house"></i> Powrót do Portalu Przedmiotu
           </a>
         </div>
@@ -1272,12 +1103,16 @@ const title = "Mój Nowoczesny Portal 2026";
     </div>
   </div>
 
-  <!-- Scripts: Reveal.js & Highlight.js -->
+  <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/highlight.min.js"></script>
   <script>
-    // Initialize Reveal.js
     Reveal.initialize({
+      width: 1240,
+      height: 700,
+      margin: 0.06,
+      minScale: 0.2,
+      maxScale: 1.4,
       hash: true,
       slideNumber: 'c/t',
       controls: true,
@@ -1287,15 +1122,14 @@ const title = "Mój Nowoczesny Portal 2026";
       backgroundTransition: 'fade',
       plugins: [ RevealHighlight ],
       keyboard: {
-        70: function() { toggleFullScreen(); } // F key
+        70: function() { toggleFullScreen(); } // klawisz F
       }
     });
 
-    // Fullscreen Toggle Helper
     function toggleFullScreen() {
       if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen().catch(err => {
-          console.warn(`Error attempting to enable fullscreen: ${err.message}`);
+          console.warn(`Fullscreen error: ${err.message}`);
         });
       } else {
         if (document.exitFullscreen) {
@@ -1309,7 +1143,6 @@ const title = "Mój Nowoczesny Portal 2026";
       Reveal.toggleOverview();
     });
 
-    // Real-time Clock Tracker for Lecturer
     function updateClock() {
       const now = new Date();
       const h = String(now.getHours()).padStart(2, '0');
