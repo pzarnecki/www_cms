@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O mnie &bull; Jan Kowalski</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Style CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAGŁÓWEK -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="logo">
+        <i class="fa-solid fa-code"></i> Jan<span>.dev</span>
+      </a>
+      
+      <nav aria-label="Nawigacja główna">
+        <ul class="nav-links">
+          <li><a href="index.html">Start</a></li>
+          <li><a href="o-mnie.html" class="active">O mnie</a></li>
+          <li><a href="index.html#projekty">Projekty</a></li>
+          <li><a href="index.html#umiejetnosci">Umiejętności</a></li>
+          <li><a href="kontakt.html" class="btn-nav">Kontakt &rarr;</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- GŁÓWNA TREŚĆ PODSTRONY O MNIE -->
+  <main class="page-content">
+    <section class="section">
+      <div class="container">
+        
+        <div class="about-grid">
+          <div class="about-image-col">
+            <div class="image-frame">
+              <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&auto=format&fit=crop&q=80" alt="Zdjęcie przy pracy przy biurku">
+            </div>
+            
+            <div class="card info-box" style="margin-top: 20px;">
+              <h4><i class="fa-solid fa-graduation-cap"></i> Edukacja</h4>
+              <p><strong>Uczelnia IDEIS</strong><br>Informatyka I Stopnia (2026 – obecnie)</p>
+              <hr style="border:0; border-top:1px solid var(--border-color); margin: 10px 0;">
+              <h4><i class="fa-solid fa-location-dot"></i> Lokalizacja</h4>
+              <p>Wrocław / Zdalnie &bull; Polska</p>
+            </div>
+          </div>
+
+          <div class="about-text-col">
+            <span class="sub-title">Moja historia</span>
+            <h2>Kim jestem i dokąd zmierzam?</h2>
+            
+            <p class="lead">
+              Nazywam się Jan Kowalski. Jestem pasjonatem technologii internetowych, czystego kodu oraz nowoczesnego designu.
+            </p>
+            
+            <p>
+              Swoją przygodę z programowaniem zacząłem od ciekawości, jak zbudowane są strony, z których korzystam na co dzień. Na studiach w IDEIS rozwijam skrzydła, poznając architekturę systemów webowych, kaskadowe arkusze stylów oraz systemy zarządzania treścią takie jak WordPress, Joomla i Ghost CMS.
+            </p>
+
+            <h3 style="margin-top: 30px; margin-bottom: 15px;">Moje Zasady w Pracy z Kodem:</h3>
+            
+            <div class="values-list">
+              <div class="value-item">
+                <i class="fa-solid fa-check-circle"></i>
+                <div>
+                  <strong>Czystość i Semantyka:</strong> Kod ma być czytelny dla ludzi, przeglądarek i czytników ekranu (WCAG).
+                </div>
+              </div>
+              <div class="value-item">
+                <i class="fa-solid fa-bolt"></i>
+                <div>
+                  <strong>Szybkość i Prostota:</strong> Nie instaluję 20 zbędnych wtyczek – stawiam na czysty CSS i wydajne rozwiązania.
+                </div>
+              </div>
+              <div class="value-item">
+                <i class="fa-solid fa-mobile-screen"></i>
+                <div>
+                  <strong>Responsywność (Mobile-First):</strong> Strona musi wyglądać doskonale zarówno na telefonie za 500 zł, jak i monitorze 4K.
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 35px;">
+              <a href="kontakt.html" class="btn btn-primary">Skontaktuj się ze mną</a>
+              <a href="index.html#projekty" class="btn btn-secondary">Zobacz moje prace</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- STOPKA -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-about">
+        <a href="index.html" class="logo">Jan<span>.dev</span></a>
+        <p>Strona stworzona w ramach przedmiotu <em>Tworzenie stron WWW oraz systemy CMS</em> na Uczelni IDEIS.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Nawigacja</h4>
+        <ul>
+          <li><a href="index.html">Strona Główna</a></li>
+          <li><a href="o-mnie.html">O mnie</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social">
+        <h4>Social Media</h4>
+        <div class="social-icons">
+          <a href="https://github.com" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Jan Kowalski. Wszelkie prawa zastrzeżone.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt &bull; Jan Kowalski</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Style CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAGŁÓWEK -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="logo">
+        <i class="fa-solid fa-code"></i> Jan<span>.dev</span>
+      </a>
+      
+      <nav aria-label="Nawigacja główna">
+        <ul class="nav-links">
+          <li><a href="index.html">Start</a></li>
+          <li><a href="o-mnie.html">O mnie</a></li>
+          <li><a href="index.html#projekty">Projekty</a></li>
+          <li><a href="index.html#umiejetnosci">Umiejętności</a></li>
+          <li><a href="kontakt.html" class="active btn-nav">Kontakt &rarr;</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- GŁÓWNA TREŚĆ PODSTRONY KONTAKT -->
+  <main class="page-content">
+    <section class="section">
+      <div class="container">
+        
+        <div class="contact-grid">
+          
+          <!-- LEWA KOLUMNA: Informacje i bezpośredni kontakt -->
+          <div class="contact-info-card">
+            <span class="sub-title">Nawiążmy kontakt</span>
+            <h2>Masz Pytanie lub Ciekawy Projekt?</h2>
+            <p class="lead">
+              Chętnie porozmawiam o projektach webowych, praktykach, współpracy lub po prostu o nowych technologiach.
+            </p>
+
+            <div class="contact-methods">
+              <div class="method-item">
+                <div class="method-icon"><i class="fa-solid fa-envelope"></i></div>
+                <div>
+                  <strong>Adres E-mail</strong>
+                  <a href="mailto:jan.kowalski@student.ideis.pl">jan.kowalski@student.ideis.pl</a>
+                </div>
+              </div>
+
+              <div class="method-item">
+                <div class="method-icon"><i class="fa-brands fa-github"></i></div>
+                <div>
+                  <strong>Repozytorium GitHub</strong>
+                  <a href="https://github.com" target="_blank" rel="noopener">github.com/jan-kowalski</a>
+                </div>
+              </div>
+
+              <div class="method-item">
+                <div class="method-icon"><i class="fa-brands fa-linkedin"></i></div>
+                <div>
+                  <strong>Profil LinkedIn</strong>
+                  <a href="https://linkedin.com" target="_blank" rel="noopener">linkedin.com/in/jan-kowalski</a>
+                </div>
+              </div>
+
+              <div class="method-item">
+                <div class="method-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div>
+                  <strong>Uczelnia</strong>
+                  <span>IDEIS Wrocław &bull; Semestr Zimowy 2026/2027</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PRAWA KOLUMNA: Formularz kontaktowy -->
+          <div class="contact-form-card">
+            <h3>Wyślij Wiadomość</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+              Wypełnij poniższe pola. Odpowiadam zazwyczaj w ciągu 24 godzin.
+            </p>
+
+            <form action="#" method="POST" class="styled-form">
+              <div class="form-group">
+                <label for="imie">Twoje Imię i Nazwisko:*</label>
+                <input type="text" id="imie" name="imie" required placeholder="np. Anna Nowak">
+              </div>
+
+              <div class="form-group">
+                <label for="email">Twój Adres E-mail:*</label>
+                <input type="email" id="email" name="email" required placeholder="anna@firma.pl">
+              </div>
+
+              <div class="form-group">
+                <label for="temat">Temat rozmowy:</label>
+                <select id="temat" name="temat">
+                  <option value="projekt">Zlecenie / Projekt strony WWW</option>
+                  <option value="konsultacje">Pytanie ze studiów</option>
+                  <option value="inne">Inny temat</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="wiadomosc">Treść wiadomości:*</label>
+                <textarea id="wiadomosc" name="wiadomosc" rows="5" required placeholder="Napisz w czym mogę pomóc..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                <i class="fa-solid fa-paper-plane"></i> Wyślij Wiadomość
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- STOPKA -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-about">
+        <a href="index.html" class="logo">Jan<span>.dev</span></a>
+        <p>Strona stworzona w ramach przedmiotu <em>Tworzenie stron WWW oraz systemy CMS</em> na Uczelni IDEIS.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Nawigacja</h4>
+        <ul>
+          <li><a href="index.html">Strona Główna</a></li>
+          <li><a href="o-mnie.html">O mnie</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social">
+        <h4>Social Media</h4>
+        <div class="social-icons">
+          <a href="https://github.com" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Jan Kowalski. Wszelkie prawa zastrzeżone.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

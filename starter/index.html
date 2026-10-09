@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jan Kowalski &bull; Portfolio &amp; Wizytówka</title>
+  
+  <!-- Google Fonts: Nowoczesna czcionka Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome: Ikony -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Nasz arkusz styli -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       1. NAGŁÓWEK STRONY I MENU (HEADER & NAV)
+       ========================================== -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="logo">
+        <i class="fa-solid fa-code"></i> Jan<span>.dev</span>
+      </a>
+      
+      <nav aria-label="Nawigacja główna">
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Start</a></li>
+          <li><a href="o-mnie.html">O mnie</a></li>
+          <li><a href="#projekty">Projekty</a></li>
+          <li><a href="#umiejetnosci">Umiejętności</a></li>
+          <li><a href="kontakt.html" class="btn-nav">Kontakt &rarr;</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       2. GŁÓWNA TREŚĆ STRONY (MAIN)
+       ========================================== -->
+  <main>
+
+    <!-- SEKCJA HERO: Pierwsze wrażenie -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <div class="badge">
+            <span class="pulse-dot"></span> Student Informatyki &bull; Uczelnia IDEIS
+          </div>
+          <h1>Cześć, jestem <span class="gradient-text">Jan Kowalski</span> 👋</h1>
+          <p class="lead">
+            Uczę się tworzenia nowoczesnych stron WWW, czystego kodu HTML5/CSS3 oraz systemów CMS. Buduję szybkie, estetyczne i responsywne projekty internetowe.
+          </p>
+          
+          <div class="hero-actions">
+            <a href="#projekty" class="btn btn-primary">
+              <i class="fa-solid fa-laptop-code"></i> Zobacz Projekty
+            </a>
+            <a href="kontakt.html" class="btn btn-secondary">
+              <i class="fa-solid fa-paper-plane"></i> Napisz do Mnie
+            </a>
+          </div>
+
+          <div class="quick-stats">
+            <div class="stat-item">
+              <strong>3+</strong>
+              <span>Projekty w toku</span>
+            </div>
+            <div class="stat-item">
+              <strong>100%</strong>
+              <span>Pasji do nauki</span>
+            </div>
+            <div class="stat-item">
+              <strong>2026</strong>
+              <span>Rok startu</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <div class="image-frame">
+            <!-- Możesz podmienić to zdjęcie na własne w folderze img/ -->
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&auto=format&fit=crop&q=80" alt="Zdjęcie profilowe Jana Kowalskiego">
+            <div class="image-glow"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEKCJA PROJEKTÓW: Grid z kartami -->
+    <section class="section" id="projekty">
+      <div class="container">
+        <div class="section-header">
+          <span class="sub-title">Moje portfolio</span>
+          <h2>Wybrane Projekty i Ćwiczenia</h2>
+          <p>Prace zrealizowane podczas laboratoriów i samodzielnych eksperymentów.</p>
+        </div>
+
+        <div class="cards-grid">
+          
+          <!-- KARTA PROJEKTU 1 -->
+          <article class="card">
+            <div class="card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=80" alt="Podgląd panelu analitycznego">
+              <span class="card-category">HTML &amp; CSS Grid</span>
+            </div>
+            <div class="card-content">
+              <h3>Panel Analityczny Dashboard</h3>
+              <p>Projekt responsywnego panelu zarządzania z ciemnym motywem, wykresem i metrykami w CSS Grid.</p>
+              <div class="card-tags">
+                <span>HTML5</span>
+                <span>Flexbox</span>
+                <span>CSS Variables</span>
+              </div>
+              <a href="#" class="card-btn">Zobacz szczegóły &rarr;</a>
+            </div>
+          </article>
+
+          <!-- KARTA PROJEKTU 2 -->
+          <article class="card">
+            <div class="card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&auto=format&fit=crop&q=80" alt="Podgląd bloga technologicznego">
+              <span class="card-category">Ghost CMS</span>
+            </div>
+            <div class="card-content">
+              <h3>Technologiczny Blog Markdown</h3>
+              <p>Wdrożenie nowoczesnego CMS-a w Node.js zoptymalizowanego pod kątem szybkości i newslettera.</p>
+              <div class="card-tags">
+                <span>Ghost</span>
+                <span>Node.js</span>
+                <span>SEO</span>
+              </div>
+              <a href="#" class="card-btn">Zobacz szczegóły &rarr;</a>
+            </div>
+          </article>
+
+          <!-- KARTA PROJEKTU 3 -->
+          <article class="card">
+            <div class="card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&auto=format&fit=crop&q=80" alt="Kod źródłowy na ekranie">
+              <span class="card-category">Web API</span>
+            </div>
+            <div class="card-content">
+              <h3>Aplikacja Pogodowa Fetch</h3>
+              <p>Dynamiczna wizytówka pobierająca dane meteorologiczne w formacie JSON za pomocą JavaScript.</p>
+              <div class="card-tags">
+                <span>JavaScript</span>
+                <span>REST API</span>
+                <span>JSON</span>
+              </div>
+              <a href="#" class="card-btn">Zobacz szczegóły &rarr;</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SEKCJA UMIEJĘTNOŚCI -->
+    <section class="section section-darker" id="umiejetnosci">
+      <div class="container">
+        <div class="section-header">
+          <span class="sub-title">Warsztat techniczny</span>
+          <h2>Technologie, z Których Korzystam</h2>
+          <p>Narzędzia i języki, które poznaję na studiach i wykorzystuję w projektach.</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <i class="fa-brands fa-html5 skill-icon" style="color: #e34f26;"></i>
+            <h4>HTML5</h4>
+            <p>Semantyka, landmarki, formularze i dostępność WCAG.</p>
+          </div>
+          <div class="skill-card">
+            <i class="fa-brands fa-css3-alt skill-icon" style="color: #38bdf8;"></i>
+            <h4>CSS3 &amp; Grid</h4>
+            <p>Flexbox, siatki Grid, responsywność RWD, płynna typografia clamp().</p>
+          </div>
+          <div class="skill-card">
+            <i class="fa-brands fa-square-js skill-icon" style="color: #f7df1e;"></i>
+            <h4>JavaScript</h4>
+            <p>Podstawy manipulacji drzewem DOM i obsługa zdarzeń.</p>
+          </div>
+          <div class="skill-card">
+            <i class="fa-brands fa-git-alt skill-icon" style="color: #f05032;"></i>
+            <h4>Git &amp; GitHub</h4>
+            <p>Kontrola wersji, gałęzie, publikacja na GitHub Pages.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       3. STOPKA STRONY (FOOTER)
+       ========================================== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-about">
+        <a href="index.html" class="logo">Jan<span>.dev</span></a>
+        <p>Strona stworzona w ramach przedmiotu <em>Tworzenie stron WWW oraz systemy CMS</em> na Uczelni IDEIS.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Nawigacja</h4>
+        <ul>
+          <li><a href="index.html">Strona Główna</a></li>
+          <li><a href="o-mnie.html">O mnie</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social">
+        <h4>Social Media &amp; Kod</h4>
+        <div class="social-icons">
+          <a href="https://github.com" target="_blank" rel="noopener" title="Mój GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" title="Mój LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="mailto:jan.kowalski@student.ideis.pl" title="Napisz maila"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Jan Kowalski. Wszelkie prawa zastrzeżone. Kod źródłowy udostępniony na licencji MIT.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
